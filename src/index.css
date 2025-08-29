@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-granite-800 to-granite-900 hover:from-granite-700 hover:to-granite-800 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-[1.02] shadow-stone hover:shadow-marble;
+  }
+  
+  .btn-secondary {
+    @apply bg-white hover:bg-gradient-to-r hover:from-gold-50 hover:to-stone-50 text-granite-800 border-2 border-granite-200 hover:border-gold-300 px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-[1.02] shadow-stone;
+  }
+  
+  .section-padding {
+    @apply py-20 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .heading-primary {
+    @apply font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold bg-gradient-to-r from-granite-900 via-stone-800 to-granite-700 bg-clip-text text-transparent leading-tight;
+  }
+  
+  .heading-secondary {
+    @apply font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-granite-900 leading-tight;
+  }
+  
+  .text-elegant {
+    @apply text-lg md:text-xl leading-relaxed text-granite-600;
+  }
+  
+  .card-marble {
+    @apply bg-white rounded-2xl shadow-marble hover:shadow-stone transition-all duration-500 transform hover:-translate-y-2 border border-stone-100 overflow-hidden;
+  }
+  
+  .overlay-dark {
+    @apply absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent;
+  }
+  
+  .texture-marble {
+    @apply bg-marble-texture;
+  }
+  
+  .texture-stone {
+    @apply bg-stone-texture;
+  }
+  
+  .texture-dark-marble {
+    @apply bg-dark-marble;
+  }
+  
+  /* Hero Carousel Styles */
+  .hero-carousel {
+    @apply w-full h-full;
+  }
+  
+  .hero-carousel .swiper-slide {
+    @apply flex items-center justify-center;
+  }
+  
+  .hero-carousel .swiper-pagination {
+    @apply hidden;
+  }
+  
+  .hero-carousel .swiper-button-next,
+  .hero-carousel .swiper-button-prev {
+    @apply hidden;
+  }
+  
+  /* Smooth animations for carousel text */
+  .hero-carousel .swiper-slide-active h1 {
+    animation: slideInUp 0.8s ease-out 0.2s both;
+  }
+  
+  .hero-carousel .swiper-slide-active p {
+    animation: slideInUp 0.8s ease-out 0.4s both;
+  }
+  
+  .hero-carousel .swiper-slide-active a {
+    animation: slideInUp 0.8s ease-out 0.6s both;
+  }
+  
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
