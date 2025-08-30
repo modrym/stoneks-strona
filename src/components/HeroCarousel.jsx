@@ -9,6 +9,12 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/effect-fade'
 
+// Import images
+import nagrobki from '../assets/images/carousel/nagrobki.jpg'
+import blaty from '../assets/images/carousel/blaty.jpg'
+import schody from '../assets/images/carousel/schody.jpg'
+import tradycja from '../assets/images/carousel/tradycja.jpg'
+
 const HeroCarousel = () => {
   const [activeSlide, setActiveSlide] = useState(0)
 
@@ -20,7 +26,9 @@ const HeroCarousel = () => {
       description: "Tworzymy unikalne pomniki i nagrobki z najszlachetniejszych kamieni naturalnych",
       ctaText: "Zobacz realizacje",
       ctaLink: "#projects",
-      backgroundClass: "bg-gradient-to-br from-granite-900 via-granite-800 to-granite-900"
+      backgroundClass: "bg-gradient-to-br from-granite-900 via-granite-800 to-granite-900",
+      imageUrl: nagrobki,
+      imageAlt: "Nagrobki na Cmentarzu Powązkowskim w Warszawie"
     },
     {
       id: 2,
@@ -29,7 +37,9 @@ const HeroCarousel = () => {
       description: "Granit, marmur i konglomerat - stwórz kuchnię swoich marzeń",
       ctaText: "Sprawdź ofertę",
       ctaLink: "#about",
-      backgroundClass: "bg-gradient-to-br from-stone-700 via-stone-600 to-stone-800"
+      backgroundClass: "bg-gradient-to-br from-stone-700 via-stone-600 to-stone-800",
+      imageUrl: blaty,
+      imageAlt: "Nowoczesna kuchnia z blatem z granitu"
     },
     {
       id: 3,
@@ -38,7 +48,9 @@ const HeroCarousel = () => {
       description: "Schody, elewacje, parapety - elementy, które przetrwają wieki",
       ctaText: "Poznaj więcej",
       ctaLink: "#about",
-      backgroundClass: "bg-gradient-to-br from-granite-800 via-stone-700 to-granite-900"
+      backgroundClass: "bg-gradient-to-br from-granite-800 via-stone-700 to-granite-900",
+      imageUrl: schody,
+      imageAlt: "Schody z kamienia na zewnątrz budynku"
     },
     {
       id: 4,
@@ -47,7 +59,9 @@ const HeroCarousel = () => {
       description: "Rodzinna firma z wieloletnim doświadczeniem w obróbce kamienia naturalnego",
       ctaText: "Nasze historia",
       ctaLink: "#about",
-      backgroundClass: "bg-gradient-to-br from-stone-800 via-granite-700 to-stone-900"
+      backgroundClass: "bg-gradient-to-br from-stone-800 via-granite-700 to-stone-900",
+      imageUrl: tradycja,
+      imageAlt: "Warsztat kamieniarski"
     }
   ]
 
@@ -79,8 +93,16 @@ const HeroCarousel = () => {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={slide.id} className="relative">
-            {/* Background Image Placeholder */}
+            {/* Background Image */}
             <div className={`absolute inset-0 ${slide.backgroundClass}`}>
+              {slide.imageUrl && (
+                <img
+                  src={slide.imageUrl}
+                  alt={slide.imageAlt}
+                  className="absolute inset-0 w-full h-full object-cover opacity-70"
+                  loading="eager"
+                />
+              )}
               {/* Texture overlay */}
               <div className="absolute inset-0 texture-dark-marble opacity-40"></div>
               
@@ -92,7 +114,7 @@ const HeroCarousel = () => {
               <div className="absolute bottom-1/3 left-1/5 w-80 h-80 bg-gradient-to-br from-stone-400/10 to-stone-600/20 rounded-full blur-2xl animate-pulse delay-1000"></div>
               
               {/* Central placeholder content */}
-              <div className="absolute inset-0 flex items-center justify-center">
+              {/* <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center text-white/20">
                   <div className="w-32 h-32 mx-auto mb-8 bg-gradient-to-br from-gold-400/30 to-gold-600/30 rounded-full flex items-center justify-center">
                     <span className="text-6xl font-bold text-white/40">{slide.id}</span>
@@ -100,7 +122,7 @@ const HeroCarousel = () => {
                   <p className="text-2xl font-medium">Zdjęcie {slide.id}</p>
                   <p className="text-lg">Będzie dodane wkrótce</p>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* Content Overlay */}

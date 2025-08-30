@@ -1,5 +1,8 @@
 import { ArrowRight, Award, Users, Clock } from 'lucide-react'
 
+// images
+import kamieniarz from '../assets/images/kamieniarz.jpg';
+
 const Hero = () => {
   const stats = [
     { icon: Award, label: 'Lat doświadczenia', value: '25+' },
@@ -79,21 +82,19 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Enhanced Image Section */}
+          {/* Enhanced Image Section */
+          }
           <div className="relative">
             {/* Main image container */}
             <div className="relative group">
-              <div className="aspect-[4/3] texture-stone rounded-3xl overflow-hidden shadow-marble border-4 border-white/50 backdrop-blur-sm">
-                <div className="w-full h-full flex items-center justify-center relative">
-                  <div className="overlay-dark"></div>
-                  <div className="text-center text-white relative z-10">
-                    <div className="w-28 h-28 mx-auto mb-6 bg-gradient-to-br from-gold-400 to-gold-600 rounded-full flex items-center justify-center shadow-gold">
-                      <Award size={48} className="text-white" />
-                    </div>
-                    <p className="text-xl font-semibold mb-2">Mistrzowskie realizacje</p>
-                    <p className="text-gold-200 text-sm">Prawdziwe zdjęcia wkrótce</p>
-                  </div>
-                </div>
+              <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-marble border-4 border-white/50 backdrop-blur-sm relative">
+                <img
+                  src={kamieniarz}
+                  alt="Kamieniarz pracujący dłutem przy obróbce kamienia"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
               </div>
               
               {/* Floating elements */}

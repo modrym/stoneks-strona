@@ -19,7 +19,10 @@ const ProjectsCarousel = () => {
       location: 'Warszawa',
       date: '2024',
       category: 'Nagrobki',
-      images: ['placeholder-1.jpg']
+      images: [
+        'https://images.pexels.com/photos/1048411/pexels-photo-1048411.jpeg'
+      ],
+      imageAlt: 'Szpaler nagrobków w alei cmentarnej'
     },
     {
       id: 2,
@@ -28,7 +31,10 @@ const ProjectsCarousel = () => {
       location: 'Kraków',
       date: '2024',
       category: 'Blaty kuchenne',
-      images: ['placeholder-2.jpg']
+      images: [
+        'https://images.pexels.com/photos/2089698/pexels-photo-2089698.jpeg'
+      ],
+      imageAlt: 'Nowoczesna kuchnia z jasnym blatem z kamienia'
     },
     {
       id: 3,
@@ -37,7 +43,10 @@ const ProjectsCarousel = () => {
       location: 'Gdańsk',
       date: '2023',
       category: 'Architektura',
-      images: ['placeholder-3.jpg']
+      images: [
+        'https://images.pexels.com/photos/2166698/pexels-photo-2166698.jpeg'
+      ],
+      imageAlt: 'Zewnętrzne schody z kamienia'
     },
     {
       id: 4,
@@ -46,7 +55,10 @@ const ProjectsCarousel = () => {
       location: 'Wrocław',
       date: '2023',
       category: 'Nagrobki',
-      images: ['placeholder-4.jpg']
+      images: [
+        'https://images.pexels.com/photos/208495/pexels-photo-208495.jpeg'
+      ],
+      imageAlt: 'Marmurowy nagrobek z rzeźbą'
     },
     {
       id: 5,
@@ -55,7 +67,10 @@ const ProjectsCarousel = () => {
       location: 'Poznań',
       date: '2024',
       category: 'Architektura',
-      images: ['placeholder-5.jpg']
+      images: [
+        'https://images.pexels.com/photos/271786/pexels-photo-271786.jpeg'
+      ],
+      imageAlt: 'Wnętrze z oknem i kamiennym parapetem'
     }
   ]
 
@@ -112,26 +127,20 @@ const ProjectsCarousel = () => {
             {projects.map((project) => (
               <SwiperSlide key={project.id}>
                 <div className="card-marble group overflow-hidden">
-                  {/* Enhanced Image placeholder */}
+                  {/* Project Image */}
                   <div className="aspect-[4/3] relative overflow-hidden">
-                    <div className="texture-stone w-full h-full"></div>
-                    <div className="overlay-dark"></div>
-                    
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center text-white relative z-10">
-                        <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-gold-500 to-gold-600 rounded-full flex items-center justify-center shadow-gold group-hover:scale-110 transition-transform duration-300">
-                          <span className="text-2xl font-bold text-white">{project.id}</span>
-                        </div>
-                        <p className="text-sm font-medium text-gold-200">Zdjęcie projektu</p>
-                      </div>
-                    </div>
-                    
+                    <img
+                      src={project.images[0]}
+                      alt={project.imageAlt || project.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
                     <div className="absolute top-4 left-4">
                       <span className="bg-gradient-to-r from-granite-800 to-granite-900 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-stone backdrop-blur-sm">
                         {project.category}
                       </span>
                     </div>
-                    
                     {/* Decorative elements */}
                     <div className="absolute top-6 right-6 w-3 h-3 bg-gold-400 rounded-full animate-pulse"></div>
                     <div className="absolute bottom-6 left-6 w-2 h-2 bg-gold-300 rounded-full animate-pulse delay-500"></div>
@@ -213,16 +222,13 @@ const ProjectsCarousel = () => {
                 </button>
               </div>
               
-              <div className="aspect-[16/10] bg-gradient-to-br from-stone-200 to-stone-300 rounded-lg mb-6">
-                <div className="w-full h-full flex items-center justify-center">
-                  <div className="text-center text-stone-600">
-                    <div className="w-20 h-20 mx-auto mb-4 bg-stone-400 rounded-full flex items-center justify-center">
-                      <span className="text-3xl font-bold text-white">{activeProject.id}</span>
-                    </div>
-                    <p>Galeria zdjęć projektu</p>
-                    <p className="text-sm">Będzie dodana wkrótce</p>
-                  </div>
-                </div>
+              <div className="aspect-[16/10] rounded-lg mb-6 overflow-hidden relative">
+                <img
+                  src={activeProject.images[0]}
+                  alt={activeProject.imageAlt || activeProject.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="eager"
+                />
               </div>
               
               <div className="space-y-4">

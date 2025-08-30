@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Menu, X, Phone, Mail } from 'lucide-react'
+import stoneksLogo from '../assets/images/stoneks-logo.jpg'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -14,18 +15,20 @@ const Header = () => {
     <header className="bg-white/95 backdrop-blur-md shadow-stone fixed w-full top-0 z-50 border-b border-stone-100/50">
       <div className="container-custom">
         <div className="flex justify-between items-center py-4">
-          {/* Enhanced Logo */}
+          {/* Logo */}
           <div className="flex items-center group">
             <div className="relative">
-              <div className="w-14 h-14 bg-gradient-to-br from-granite-800 to-granite-900 rounded-xl flex items-center justify-center shadow-stone group-hover:shadow-marble transition-all duration-300 transform group-hover:scale-105">
-                <span className="text-white font-bold text-xl font-serif">S</span>
-              </div>
+              <img 
+                src={stoneksLogo} 
+                alt="Stoneks Logo" 
+                className="w-14 h-14 rounded-xl shadow-stone group-hover:shadow-marble transition-all duration-300 transform group-hover:scale-105 object-contain bg-white"
+              />
               {/* Decorative ring */}
               <div className="absolute inset-0 w-14 h-14 border-2 border-gold-400/20 rounded-xl animate-pulse group-hover:border-gold-500/40 transition-colors duration-300"></div>
             </div>
             <div className="ml-4">
               <span className="text-2xl font-bold bg-gradient-to-r from-granite-900 to-granite-700 bg-clip-text text-transparent font-serif">
-                Stoneks
+                StoneKS
               </span>
               <div className="text-xs text-granite-500 font-medium tracking-wider uppercase">
                 Mistrzowska Kamieniarka

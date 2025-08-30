@@ -74,20 +74,17 @@ const About = () => {
             </div>
           </div>
 
-          {/* Enhanced Image placeholder */}
+          {/* Enhanced Image */}
           <div className="relative">
             <div className="relative group">
-              <div className="aspect-[4/3] texture-stone rounded-2xl overflow-hidden shadow-marble border-4 border-white/70">
-                <div className="w-full h-full flex items-center justify-center relative">
-                  <div className="overlay-dark"></div>
-                  <div className="text-center text-white relative z-10">
-                    <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-granite-600 to-granite-800 rounded-full flex items-center justify-center shadow-stone group-hover:shadow-marble transition-all duration-300">
-                      <Hammer size={40} className="text-white" />
-                    </div>
-                    <p className="text-lg font-semibold mb-2">Warsztat mistrzowski</p>
-                    <p className="text-granite-200 text-sm">Prawdziwe zdjęcia wkrótce</p>
-                  </div>
-                </div>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-marble border-4 border-white/70 relative">
+                <img
+                  src="https://images.pexels.com/photos/208567/pexels-photo-208567.jpeg"
+                  alt="Warsztat kamieniarski z narzędziami i elementami z kamienia"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
               </div>
               
               {/* Floating decorative elements */}
