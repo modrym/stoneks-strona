@@ -3,15 +3,30 @@ module.exports = {
   env: { browser: true, es2020: true },
   extends: [
     'eslint:recommended',
-    '@eslint/js/recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
-  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+  parser: '@typescript-eslint/parser',
+  parserOptions: { 
+    ecmaVersion: 'latest', 
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true
+    }
+  },
   settings: { react: { version: '18.2' } },
-  plugins: ['react-refresh'],
+  plugins: ['react-refresh', '@typescript-eslint'],
+  overrides: [
+    {
+      files: ['**/*.{ts,tsx}'],
+      extends: ['plugin:@typescript-eslint/recommended'],
+      rules: {
+        '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      },
+    },
+  ],
   rules: {
     'react-refresh/only-export-components': [
       'warn',

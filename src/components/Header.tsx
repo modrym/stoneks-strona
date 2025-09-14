@@ -1,14 +1,22 @@
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { Menu, X, Phone, Mail } from 'lucide-react'
 import stoneksLogo from '../assets/images/stoneks-logo.jpg'
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+interface NavigationItem {
+  name: string;
+  href: string;
+}
 
-  const navigation = [
-    { name: 'O nas', href: '#about' },
-    { name: 'Realizacje', href: '#projects' },
-    { name: 'Kontakt', href: '#contact' },
+const Header = (): JSX.Element => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const location = useLocation()
+  const isGalleryPage = location.pathname.startsWith('/portfolio/')
+
+  const navigation: NavigationItem[] = [
+    { name: 'O nas', href: isGalleryPage ? '/#about' : '#about' },
+    { name: 'Realizacje', href: isGalleryPage ? '/#portfolio' : '#portfolio' },
+    { name: 'Kontakt', href: isGalleryPage ? '/#contact' : '#contact' },
   ]
 
   return (
@@ -27,12 +35,14 @@ const Header = () => {
               <div className="absolute inset-0 w-14 h-14 border-2 border-gold-400/20 rounded-xl animate-pulse group-hover:border-gold-500/40 transition-colors duration-300"></div>
             </div>
             <div className="ml-4">
-              <span className="text-2xl font-bold bg-gradient-to-r from-granite-900 to-granite-700 bg-clip-text text-transparent font-serif">
-                StoneKS
-              </span>
-              <div className="text-xs text-granite-500 font-medium tracking-wider uppercase">
-                Mistrzowska Kamieniarka
-              </div>
+              <a href={isGalleryPage ? '/' : '#'} className="block">
+                <span className="text-2xl font-bold bg-gradient-to-r from-granite-900 to-granite-700 bg-clip-text text-transparent font-serif">
+                  StoneKS
+                </span>
+                <div className="text-xs text-granite-500 font-medium tracking-wider uppercase">
+                  Mistrzowska Kamieniarka
+                </div>
+              </a>
             </div>
           </div>
 

@@ -1,17 +1,25 @@
-import { useState } from 'react'
+import { useState, ChangeEvent, FormEvent } from 'react'
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react'
 
-const ContactForm = () => {
-  const [formData, setFormData] = useState({
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+}
+
+const ContactForm = (): JSX.Element => {
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
     subject: '',
     message: ''
   })
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false)
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     const { name, value } = e.target
     setFormData(prev => ({
       ...prev,
@@ -19,7 +27,7 @@ const ContactForm = () => {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
     // Simulate form submission
     console.log('Form submitted:', formData)

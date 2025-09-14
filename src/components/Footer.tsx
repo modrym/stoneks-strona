@@ -1,15 +1,20 @@
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Linkedin } from 'lucide-react'
 
-const Footer = () => {
+interface QuickLink {
+  name: string;
+  href: string;
+}
+
+const Footer = (): JSX.Element => {
   const currentYear = new Date().getFullYear()
 
-  const quickLinks = [
+  const quickLinks: QuickLink[] = [
     { name: 'O nas', href: '#about' },
     { name: 'Realizacje', href: '#projects' },
     { name: 'Kontakt', href: '#contact' },
   ]
 
-  const services = [
+  const services: string[] = [
     'Nagrobki i pomniki',
     'Blaty kuchenne',
     'Schody kamienne',

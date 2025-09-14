@@ -1,10 +1,16 @@
-import { ArrowRight, Award, Users, Clock } from 'lucide-react'
+import { ArrowRight, Award, Users, Clock, LucideIcon } from 'lucide-react'
 
 // images
 import kamieniarz from '../assets/images/kamieniarz.jpg';
 
-const Hero = () => {
-  const stats = [
+interface StatItem {
+  icon: LucideIcon;
+  label: string;
+  value: string;
+}
+
+const Hero = (): JSX.Element => {
+  const stats: StatItem[] = [
     { icon: Award, label: 'Lat doświadczenia', value: '25+' },
     { icon: Users, label: 'Zadowolonych klientów', value: '1000+' },
     { icon: Clock, label: 'Realizacji rocznie', value: '300+' },

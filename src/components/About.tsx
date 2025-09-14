@@ -1,7 +1,13 @@
-import { CheckCircle, Hammer, Palette, Shield } from 'lucide-react'
+import { CheckCircle, Hammer, Palette, Shield, LucideIcon } from 'lucide-react'
 
-const About = () => {
-  const services = [
+interface Service {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
+
+const About = (): JSX.Element => {
+  const services: Service[] = [
     {
       icon: Hammer,
       title: 'Nagrobki i pomniki',

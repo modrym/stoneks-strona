@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
@@ -15,8 +15,8 @@ import blaty from '../assets/images/carousel/blaty.jpg'
 import schody from '../assets/images/carousel/schody.jpg'
 import tradycja from '../assets/images/carousel/tradycja.jpg'
 
-const HeroCarousel = () => {
-  const [activeSlide, setActiveSlide] = useState(0)
+const HeroCarousel = (): JSX.Element => {
+  const [activeSlide, setActiveSlide] = useState<number>(0)
 
   const slides = [
     {
@@ -91,7 +91,7 @@ const HeroCarousel = () => {
         onSlideChange={(swiper) => setActiveSlide(swiper.activeIndex)}
         className="hero-carousel h-full"
       >
-        {slides.map((slide, index) => (
+        {slides.map((slide, _index) => (
           <SwiperSlide key={slide.id} className="relative">
             {/* Background Image */}
             <div className={`absolute inset-0 ${slide.backgroundClass}`}>
@@ -212,7 +212,7 @@ const HeroCarousel = () => {
         />
       </div>
 
-      <style jsx>{`
+      <style>{`
         .hero-carousel .swiper-pagination {
           display: none;
         }
