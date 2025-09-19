@@ -11,7 +11,6 @@ import 'swiper/css/effect-fade'
 
 // Import images
 import nagrobki from '../assets/images/carousel/nagrobki.jpg'
-import blaty from '../assets/images/carousel/blaty.jpg'
 import schody from '../assets/images/carousel/schody.jpg'
 import tradycja from '../assets/images/carousel/tradycja.jpg'
 
@@ -32,17 +31,6 @@ const HeroCarousel = (): JSX.Element => {
     },
     {
       id: 2,
-      title: "Eleganckie Blaty Kuchenne",
-      subtitle: "Funkcjonalność spotyka piękno",
-      description: "Granit, marmur i konglomerat - stwórz kuchnię swoich marzeń",
-      ctaText: "Sprawdź ofertę",
-      ctaLink: "#about",
-      backgroundClass: "bg-gradient-to-br from-stone-700 via-stone-600 to-stone-800",
-      imageUrl: blaty,
-      imageAlt: "Nowoczesna kuchnia z blatem z granitu"
-    },
-    {
-      id: 3,
       title: "Architektura w Kamieniu",
       subtitle: "Ponadczasowe rozwiązania",
       description: "Schody, elewacje, parapety - elementy, które przetrwają wieki",
@@ -53,7 +41,7 @@ const HeroCarousel = (): JSX.Element => {
       imageAlt: "Schody z kamienia na zewnątrz budynku"
     },
     {
-      id: 4,
+      id: 3,
       title: "Tradycja Przekazywana Pokoleniami",
       subtitle: "Od 1999 roku z pasją",
       description: "Rodzinna firma z wieloletnim doświadczeniem w obróbce kamienia naturalnego",
