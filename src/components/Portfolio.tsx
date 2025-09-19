@@ -34,7 +34,7 @@ const Portfolio = (): JSX.Element => {
           {galleryCategories.map((category) => (
             <Link 
               key={category.id}
-              to={`/portfolio/${category.id}`}
+              to={`/realizacje/${category.id}`}
               className="group block"
             >
               <div className="card-marble group overflow-hidden hover:shadow-granite-lg transform hover:-translate-y-2 transition-all duration-500">
@@ -96,10 +96,10 @@ const Portfolio = (): JSX.Element => {
                 Skontaktuj się z nami, aby omówić Twój projekt. Oferujemy bezpłatną konsultację 
                 i wycenę dostosowaną do Twoich potrzeb.
               </p>
-              <a href="#contact" className="btn-primary group inline-flex items-center">
+              <Link to="/kontakt" className="btn-primary group inline-flex items-center">
                 Rozpocznij współpracę
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

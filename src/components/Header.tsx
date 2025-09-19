@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import { Menu, X, Phone, Mail } from 'lucide-react'
 import stoneksLogo from '../assets/images/stoneks-logo.jpg'
 
@@ -11,12 +11,12 @@ interface NavigationItem {
 const Header = (): JSX.Element => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const location = useLocation()
-  const isGalleryPage = location.pathname.startsWith('/portfolio/')
 
   const navigation: NavigationItem[] = [
-    { name: 'O nas', href: isGalleryPage ? '/#about' : '#about' },
-    { name: 'Realizacje', href: isGalleryPage ? '/#portfolio' : '#portfolio' },
-    { name: 'Kontakt', href: isGalleryPage ? '/#contact' : '#contact' },
+    { name: 'Strona główna', href: '/' },
+    { name: 'O nas', href: '/o-nas' },
+    { name: 'Realizacje', href: '/realizacje' },
+    { name: 'Kontakt', href: '/kontakt' },
   ]
 
   return (
@@ -35,28 +35,36 @@ const Header = (): JSX.Element => {
               <div className="absolute inset-0 w-14 h-14 border-2 border-gold-400/20 rounded-xl animate-pulse group-hover:border-gold-500/40 transition-colors duration-300"></div>
             </div>
             <div className="ml-4">
-              <a href={isGalleryPage ? '/' : '#'} className="block">
+              <Link to="/" className="block">
                 <span className="text-2xl font-bold bg-gradient-to-r from-granite-900 to-granite-700 bg-clip-text text-transparent font-serif">
                   StoneKS
                 </span>
                 <div className="text-xs text-granite-500 font-medium tracking-wider uppercase">
                   Mistrzowska Kamieniarka
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
 
           {/* Enhanced Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
-                className="relative text-granite-700 hover:text-granite-900 font-semibold transition-all duration-300 group"
+                to={item.href}
+                className={`relative font-semibold transition-all duration-300 group ${
+                  location.pathname === item.href 
+                    ? 'text-granite-900' 
+                    : 'text-granite-700 hover:text-granite-900'
+                }`}
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-gold-500 to-gold-600 group-hover:w-full transition-all duration-300"></span>
-              </a>
+                <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-gold-500 to-gold-600 transition-all duration-300 ${
+                  location.pathname === item.href 
+                    ? 'w-full' 
+                    : 'w-0 group-hover:w-full'
+                }`}></span>
+              </Link>
             ))}
           </nav>
 
@@ -90,14 +98,18 @@ const Header = (): JSX.Element => {
           <div className="md:hidden border-t border-gray-200">
             <div className="py-4 space-y-4">
               {navigation.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
-                  className="block text-gray-700 hover:text-stone-800 font-medium"
+                  to={item.href}
+                  className={`block font-medium ${
+                    location.pathname === item.href 
+                      ? 'text-stone-800' 
+                      : 'text-gray-700 hover:text-stone-800'
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
               <div className="pt-4 border-t border-gray-200 space-y-2">
                 <div className="flex items-center space-x-2 text-stone-600">

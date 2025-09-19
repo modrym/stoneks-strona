@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Linkedin } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 interface QuickLink {
   name: string;
@@ -9,9 +10,10 @@ const Footer = (): JSX.Element => {
   const currentYear = new Date().getFullYear()
 
   const quickLinks: QuickLink[] = [
-    { name: 'O nas', href: '#about' },
-    { name: 'Realizacje', href: '#projects' },
-    { name: 'Kontakt', href: '#contact' },
+    { name: 'Strona główna', href: '/' },
+    { name: 'O nas', href: '/o-nas' },
+    { name: 'Realizacje', href: '/realizacje' },
+    { name: 'Kontakt', href: '/kontakt' },
   ]
 
   const services: string[] = [
@@ -82,12 +84,12 @@ const Footer = (): JSX.Element => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-stone-300 hover:text-white transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

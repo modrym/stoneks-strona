@@ -2,10 +2,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import HeroCarousel from './components/HeroCarousel'
 import Hero from './components/Hero'
-import About from './components/About'
-import Portfolio from './components/Portfolio'
+import AboutPage from './components/AboutPage'
+import PortfolioPage from './components/PortfolioPage'
 import GalleryPage from './components/GalleryPage'
-import ContactForm from './components/ContactForm'
+import ContactPage from './components/ContactPage'
 import Footer from './components/Footer'
 
 // Home page component
@@ -15,9 +15,6 @@ function HomePage(): JSX.Element {
       <Header />
       <HeroCarousel />
       <Hero />
-      <About />
-      <Portfolio />
-      <ContactForm />
       <Footer />
     </>
   )
@@ -29,7 +26,10 @@ function App(): JSX.Element {
       <div className="min-h-screen bg-white">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/portfolio/:categoryId" element={<GalleryPage />} />
+          <Route path="/o-nas" element={<AboutPage />} />
+          <Route path="/realizacje" element={<PortfolioPage />} />
+          <Route path="/realizacje/:categoryId" element={<GalleryPage />} />
+          <Route path="/kontakt" element={<ContactPage />} />
         </Routes>
       </div>
     </Router>

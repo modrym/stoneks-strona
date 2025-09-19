@@ -33,15 +33,6 @@ const GalleryPage = (): JSX.Element => {
       <section className="pt-24 pb-8 bg-white/80 backdrop-blur-sm border-b border-stone-200">
         <div className="container-custom">
           <div className="text-center">
-            <div className="flex items-center justify-center mb-4">
-              <Link 
-                to="/" 
-                className="text-granite-600 hover:text-granite-800 transition-colors flex items-center space-x-2 group mr-6"
-              >
-                <ArrowLeft className="group-hover:-translate-x-1 transition-transform" size={20} />
-                <span>Powrót do głównej</span>
-              </Link>
-            </div>
             <h1 className="text-4xl font-bold text-granite-900 mb-2">{category.title}</h1>
             <p className="text-granite-600">{category.images.length} {category.images.length === 1 ? 'realizacja' : 'realizacji'}</p>
           </div>
@@ -82,10 +73,10 @@ const GalleryPage = (): JSX.Element => {
                   Skontaktuj się z nami, aby omówić Twój projekt w kategorii &ldquo;{category.name}&rdquo;. 
                   Oferujemy bezpłatną konsultację i wycenę.
                 </p>
-                <a href="/#contact" className="btn-primary group inline-flex items-center">
+                <Link to="/kontakt" className="btn-primary group inline-flex items-center">
                   Skontaktuj się z nami
                   <ArrowLeft className="ml-2 rotate-180 group-hover:translate-x-1 transition-transform" size={20} />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

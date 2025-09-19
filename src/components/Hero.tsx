@@ -1,4 +1,5 @@
 import { ArrowRight, Award, Users, Clock, LucideIcon } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 // images
 import kamieniarz from '../assets/images/kamieniarz.jpg';
@@ -52,19 +53,19 @@ const Hero = (): JSX.Element => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6">
-              <a 
-                href="#contact" 
+              <Link 
+                to="/kontakt" 
                 className="btn-primary inline-flex items-center justify-center group"
               >
                 Rozpocznij projekt
                 <ArrowRight className="ml-3 group-hover:translate-x-1 transition-transform" size={20} />
-              </a>
-              <a 
-                href="#projects" 
+              </Link>
+              <Link 
+                to="/realizacje" 
                 className="btn-secondary inline-flex items-center justify-center"
               >
                 Galeria realizacji
-              </a>
+              </Link>
             </div>
 
             {/* Stats - Enhanced */}
