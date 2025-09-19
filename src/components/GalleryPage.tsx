@@ -1,12 +1,64 @@
 import { useParams, Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import { Gallery } from 'react-grid-gallery'
 import { getCategoryById, GalleryCategory } from '../data/galleryData'
-import { ArrowLeft, Home } from 'lucide-react'
+import { ArrowLeft, Home, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import Header from './Header'
 
 const GalleryPage = (): JSX.Element => {
   const { categoryId } = useParams<{ categoryId: string }>()
   const category: GalleryCategory | undefined = getCategoryById(categoryId || '')
+  
+  // Lightbox state management
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  // Lightbox handlers
+  const openLightbox = (index: number) => {
+    setCurrentImageIndex(index)
+    setLightboxOpen(true)
+  }
+
+  const closeLightbox = () => {
+    setLightboxOpen(false)
+  }
+
+  const goToNext = () => {
+    if (category && currentImageIndex < category.images.length - 1) {
+      setCurrentImageIndex(currentImageIndex + 1)
+    }
+  }
+
+  const goToPrevious = () => {
+    if (currentImageIndex > 0) {
+      setCurrentImageIndex(currentImageIndex - 1)
+    }
+  }
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (!lightboxOpen) return
+
+      switch (event.key) {
+        case 'Escape':
+          closeLightbox()
+          break
+        case 'ArrowLeft':
+          goToPrevious()
+          break
+        case 'ArrowRight':
+          goToNext()
+          break
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [lightboxOpen, currentImageIndex])
+
+  // Images for react-grid-gallery (without individual onClick handlers)
+  const galleryImages = category?.images || []
 
   // If category not found, show error
   if (!category) {
@@ -53,10 +105,11 @@ const GalleryPage = (): JSX.Element => {
           <div className="max-w-7xl mx-auto">
             <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-marble border border-stone-200 p-6 lg:p-8">
               <Gallery 
-                images={category.images}
+                images={galleryImages}
                 enableImageSelection={false}
                 rowHeight={200}
                 margin={4}
+                onClick={openLightbox}
               />
             </div>
           </div>
@@ -83,6 +136,71 @@ const GalleryPage = (): JSX.Element => {
         </div>
       </main>
 
+      {/* Lightbox Modal */}
+      {lightboxOpen && category && (
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
+          {/* Close button */}
+          <button
+            onClick={closeLightbox}
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-60 p-2"
+            aria-label="Zamknij galerię"
+          >
+            <X size={32} />
+          </button>
+
+          {/* Previous button */}
+          {currentImageIndex > 0 && (
+            <button
+              onClick={goToPrevious}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-60 p-2"
+              aria-label="Poprzednie zdjęcie"
+            >
+              <ChevronLeft size={48} />
+            </button>
+          )}
+
+          {/* Next button */}
+          {currentImageIndex < category.images.length - 1 && (
+            <button
+              onClick={goToNext}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-60 p-2"
+              aria-label="Następne zdjęcie"
+            >
+              <ChevronRight size={48} />
+            </button>
+          )}
+
+          {/* Image container */}
+          <div className="relative max-w-[90vw] max-h-[90vh] flex flex-col items-center">
+            <img
+              src={category.images[currentImageIndex].src}
+              alt={category.images[currentImageIndex].title}
+              className="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl"
+            />
+            
+            {/* Image info */}
+            <div className="bg-black/50 backdrop-blur-sm text-white p-4 rounded-lg mt-4 max-w-md text-center">
+              <h3 className="text-lg font-semibold mb-2">
+                {category.images[currentImageIndex].title}
+              </h3>
+              <p className="text-sm text-gray-200">
+                {category.images[currentImageIndex].description}
+              </p>
+              <p className="text-xs text-gray-400 mt-2">
+                {currentImageIndex + 1} z {category.images.length}
+              </p>
+            </div>
+          </div>
+
+          {/* Background click to close */}
+          <div 
+            className="absolute inset-0 -z-10" 
+            onClick={closeLightbox}
+            aria-label="Zamknij galerię"
+          />
+        </div>
+      )}
+
       {/* Custom Grid Gallery Styles */}
       <style>{`
         .ReactGridGallery {
@@ -99,6 +217,7 @@ const GalleryPage = (): JSX.Element => {
         .ReactGridGallery_tile:hover {
           transform: translateY(-2px);
           box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+          cursor: pointer;
         }
         
         .ReactGridGallery_tile-viewport {
