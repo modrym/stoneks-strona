@@ -13,7 +13,7 @@ const GalleryPage = (): JSX.Element => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-granite-50 to-stone-100 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-granite-900 mb-4">Kategoria nie znaleziona</h1>
+          <h1 className="heading-secondary mb-4">Kategoria nie znaleziona</h1>
           <p className="text-granite-600 mb-8">Wybrana kategoria nie istnieje</p>
           <Link to="/" className="btn-primary inline-flex items-center">
             <Home className="mr-2" size={20} />
@@ -33,7 +33,7 @@ const GalleryPage = (): JSX.Element => {
       <section className="pt-24 pb-8 bg-white/80 backdrop-blur-sm border-b border-stone-200">
         <div className="container-custom">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-granite-900 mb-2">{category.title}</h1>
+            <h1 className="heading-secondary mb-2">{category.title}</h1>
             <p className="text-granite-600">{category.images.length} {category.images.length === 1 ? 'realizacja' : 'realizacji'}</p>
           </div>
         </div>
