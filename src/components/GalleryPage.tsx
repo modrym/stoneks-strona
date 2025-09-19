@@ -1,6 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { Gallery } from 'react-grid-gallery'
 import { getCategoryById, GalleryCategory } from '../data/galleryData'
 import { ArrowLeft, Home, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import Header from './Header'
@@ -57,7 +56,7 @@ const GalleryPage = (): JSX.Element => {
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [lightboxOpen, currentImageIndex])
 
-  // Images for react-grid-gallery (without individual onClick handlers)
+  // Images for custom uniform grid
   const galleryImages = category?.images || []
 
   // If category not found, show error
@@ -104,13 +103,40 @@ const GalleryPage = (): JSX.Element => {
           {/* Gallery Grid */}
           <div className="max-w-7xl mx-auto">
             <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-marble border border-stone-200 p-6 lg:p-8">
-              <Gallery 
-                images={galleryImages}
-                enableImageSelection={false}
-                rowHeight={200}
-                margin={4}
-                onClick={openLightbox}
-              />
+              {/* Custom Uniform Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+                {galleryImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className="group relative aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
+                    onClick={() => openLightbox(index)}
+                  >
+                    {/* Thumbnail Image */}
+                    <img
+                      src={image.thumbnail || image.src}
+                      alt={image.title || image.caption || `Image ${index + 1}`}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300">
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="text-white text-center p-3">
+                          <p className="text-sm font-medium truncate">
+                            {image.title || image.caption}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Image Number Badge */}
+                    <div className="absolute top-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      {String(index + 1).padStart(3, '0')}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -201,42 +227,6 @@ const GalleryPage = (): JSX.Element => {
         </div>
       )}
 
-      {/* Custom Grid Gallery Styles */}
-      <style>{`
-        .ReactGridGallery {
-          margin: 0;
-        }
-        
-        .ReactGridGallery_tile {
-          border-radius: 0.5rem;
-          overflow: hidden;
-          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-          transition: all 0.3s ease;
-        }
-        
-        .ReactGridGallery_tile:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
-          cursor: pointer;
-        }
-        
-        .ReactGridGallery_tile-viewport {
-          border-radius: 0.5rem;
-        }
-        
-        .ReactGridGallery_tile-overlay {
-          background: rgba(0, 0, 0, 0.6);
-          border-radius: 0.5rem;
-        }
-        
-        .ReactGridGallery_tile-description {
-          color: white;
-          font-weight: 600;
-          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-          padding: 16px;
-          font-size: 16px;
-        }
-      `}</style>
     </div>
   )
 }
