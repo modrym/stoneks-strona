@@ -81,24 +81,28 @@ const GalleryPage = (): JSX.Element => {
       <Header />
       
       {/* Gallery Title Section */}
-      <section className="pt-24 pb-8 bg-white/80 backdrop-blur-sm border-b border-stone-200">
+      <section className="pt-32 pb-0 bg-gradient-to-br from-granite-50 to-stone-100">
         <div className="container-custom">
-          <div className="text-center">
-            <h1 className="heading-secondary mb-2">{category.title}</h1>
-            <p className="text-granite-600">{category.images.length} {category.images.length === 1 ? 'realizacja' : 'realizacji'}</p>
+          <div className="text-center mb-8">
+            <div className="inline-block mb-6">
+              <span className="bg-gradient-to-r from-gold-500 to-gold-600 text-white px-6 py-2 rounded-full text-sm font-semibold tracking-wide uppercase shadow-gold">
+                Galeria realizacji
+              </span>
+            </div>
+            <h1 className="heading-secondary mb-6">{category.title}</h1>
+            <p className="text-elegant max-w-4xl mx-auto">
+              {category.description}
+            </p>
+            <div className="mt-4">
+              <p className="text-granite-600">{category.images.length} {category.images.length === 1 ? 'realizacja' : 'realizacji'}</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Gallery Content */}
-      <main className="section-padding">
+      <main className="py-8 px-4 sm:px-6 lg:px-8 pt-2">
         <div className="container-custom">
-          {/* Category Description */}
-          <div className="text-center mb-12">
-            <p className="text-elegant max-w-3xl mx-auto text-lg">
-              {category.description}
-            </p>
-          </div>
 
           {/* Gallery Grid */}
           <div className="max-w-7xl mx-auto">
