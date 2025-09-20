@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { getCategoryById, GalleryCategory } from '../data/galleryData'
 import { ArrowLeft, Home, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import Header from './Header'
+import Footer from './Footer'
 
 const GalleryPage = (): JSX.Element => {
   const { categoryId } = useParams<{ categoryId: string }>()
@@ -62,47 +63,51 @@ const GalleryPage = (): JSX.Element => {
   // If category not found, show error
   if (!category) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-granite-50 to-stone-100 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="heading-secondary mb-4">Kategoria nie znaleziona</h1>
-          <p className="text-granite-600 mb-8">Wybrana kategoria nie istnieje</p>
-          <Link to="/" className="btn-primary inline-flex items-center">
-            <Home className="mr-2" size={20} />
-            Wróć do strony głównej
-          </Link>
-        </div>
-      </div>
+      <>
+        <Header />
+        <main className="pt-20">
+          <div className="min-h-screen bg-gradient-to-br from-granite-50 to-stone-100 flex items-center justify-center">
+            <div className="text-center">
+              <h1 className="heading-secondary mb-4">Kategoria nie znaleziona</h1>
+              <p className="text-granite-600 mb-8">Wybrana kategoria nie istnieje</p>
+              <Link to="/" className="btn-primary inline-flex items-center">
+                <Home className="mr-2" size={20} />
+                Wróć do strony głównej
+              </Link>
+            </div>
+          </div>
+        </main>
+        <Footer />
+      </>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-granite-50 to-stone-100">
-      {/* Header */}
+    <>
       <Header />
-      
-      {/* Gallery Title Section */}
-      <section className="pt-32 pb-0 bg-gradient-to-br from-granite-50 to-stone-100">
-        <div className="container-custom">
-          <div className="text-center mb-8">
-            <div className="inline-block mb-6">
-              <span className="bg-gradient-to-r from-gold-500 to-gold-600 text-white px-6 py-2 rounded-full text-sm font-semibold tracking-wide uppercase shadow-gold">
-                Galeria realizacji
-              </span>
-            </div>
-            <h1 className="heading-secondary mb-6">{category.title}</h1>
-            <p className="text-elegant max-w-4xl mx-auto">
-              {category.description}
-            </p>
-            <div className="mt-4">
-              <p className="text-granite-600">{category.images.length} {category.images.length === 1 ? 'realizacja' : 'realizacji'}</p>
+      <main className="pt-20">
+        {/* Gallery Section */}
+        <section className="pt-12 pb-8 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-granite-50 to-stone-100">
+          {/* Gallery Title */}
+          <div className="container-custom">
+            <div className="text-center mb-8">
+              <div className="inline-block mb-6">
+                <span className="bg-gradient-to-r from-gold-500 to-gold-600 text-white px-6 py-2 rounded-full text-sm font-semibold tracking-wide uppercase shadow-gold">
+                  Galeria realizacji
+                </span>
+              </div>
+              <h1 className="heading-secondary mb-6">{category.title}</h1>
+              <p className="text-elegant max-w-4xl mx-auto">
+                {category.description}
+              </p>
+              <div className="mt-4">
+                <p className="text-granite-600">{category.images.length} {category.images.length === 1 ? 'realizacja' : 'realizacji'}</p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Gallery Content */}
-      <main className="py-8 px-4 sm:px-6 lg:px-8 pt-2">
-        <div className="container-custom">
+          {/* Gallery Content */}
+          <div className="container-custom">
 
           {/* Gallery Grid */}
           <div className="max-w-7xl mx-auto">
@@ -163,8 +168,10 @@ const GalleryPage = (): JSX.Element => {
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        </section>
       </main>
+      <Footer />
 
       {/* Lightbox Modal */}
       {lightboxOpen && category && (
@@ -231,7 +238,7 @@ const GalleryPage = (): JSX.Element => {
         </div>
       )}
 
-    </div>
+    </>
   )
 }
 
