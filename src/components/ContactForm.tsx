@@ -56,7 +56,7 @@ const ContactForm = (): JSX.Element => {
     {
       icon: Mail,
       title: 'Email',
-      content: 'kontakt@stoneks.pl',
+      content: 'kontakt@stoneks.info',
       subtitle: 'Odpowiadamy w 24h'
     },
     {

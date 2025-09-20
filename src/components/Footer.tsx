@@ -69,7 +69,7 @@ const Footer = (): JSX.Element => {
               </div>
               <div className="flex items-center space-x-3 text-stone-300">
                 <Mail size={18} />
-                <span>kontakt@stoneks.pl</span>
+                <span>kontakt@stoneks.info</span>
               </div>
               <div className="flex items-start space-x-3 text-stone-300">
                 <MapPin size={18} className="mt-1 flex-shrink-0" />

@@ -118,7 +118,7 @@ const Header = (): JSX.Element => {
                 </div>
                 <div className="flex items-center space-x-2 text-stone-600">
                   <Mail size={18} />
-                  <span>kontakt@stoneks.pl</span>
+                  <span>kontakt@stoneks.info</span>
                 </div>
               </div>
             </div>
