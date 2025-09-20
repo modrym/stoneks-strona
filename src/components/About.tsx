@@ -1,4 +1,5 @@
 import { CheckCircle, Hammer, Palette, Shield, LucideIcon } from 'lucide-react'
+import { SectionHeader, ServiceCard, SectionBackground } from './ui'
 
 interface Service {
   icon: LucideIcon;
@@ -35,30 +36,24 @@ const About = (): JSX.Element => {
   ]
 
   return (
-    <section id="about" className="relative section-padding overflow-hidden">
-      {/* Background with texture */}
-      <div className="absolute inset-0 bg-gradient-to-br from-stone-50 to-white"></div>
-      <div className="absolute top-0 right-0 w-1/3 h-full texture-marble opacity-30"></div>
-      
-      <div className="container-custom relative z-10">
-        <div className="text-center mb-20">
-          <div className="inline-block mb-6">
-            <span className="bg-gradient-to-r from-granite-600 to-granite-700 text-white px-6 py-2 rounded-full text-sm font-semibold tracking-wide uppercase">
-              Poznaj nas bliżej
-            </span>
-          </div>
-          <h2 className="heading-secondary mb-6">
-            Tradycja w każdym
-            <span className="block bg-gradient-to-r from-gold-600 to-gold-700 bg-clip-text text-transparent">
-              dłucie kamienia
-            </span>
-          </h2>
-          <p className="text-elegant max-w-4xl mx-auto">
-            Jesteśmy rodziną rzemieślników, która od pokoleń przekazuje sztukę obróbki kamienia. 
+    <section id="about" className="section-padding-reduced overflow-hidden">
+      <SectionBackground variant="about">
+        <div className="container-custom relative z-10">
+          <SectionHeader
+            badge="Poznaj nas bliżej"
+            badgeVariant="granite"
+            title={
+              <>
+                Tradycja w każdym
+                <span className="block bg-gradient-to-r from-gold-600 to-gold-700 bg-clip-text text-transparent">
+                  dłucie kamienia
+                </span>
+              </>
+            }
+            description="Jesteśmy rodziną rzemieślników, która od pokoleń przekazuje sztukę obróbki kamienia. 
             Łączymy wieloletnią tradycję z najnowocześniejszymi technologiami, tworząc 
-            dzieła, które przetrwają wieki.
-          </p>
-        </div>
+            dzieła, które przetrwają wieki."
+          />
 
         <div className="grid lg:grid-cols-2 gap-20 items-center mb-20">
           {/* Content */}
@@ -100,46 +95,36 @@ const About = (): JSX.Element => {
           </div>
         </div>
 
-        {/* Services */}
-        <div>
-          <div className="text-center mb-16">
-            <h3 className="heading-secondary mb-4">
-              Nasze
-              <span className="block bg-gradient-to-r from-gold-600 to-gold-700 bg-clip-text text-transparent py-2">
-                Specjalizacje
-              </span>
-            </h3>
-            <p className="text-elegant max-w-2xl mx-auto">
-              Każda domena wymaga unikalnego podejścia i mistrzowskiego wykonania
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div key={index} className="card-marble group text-center p-8 hover:bg-gradient-to-br hover:from-white hover:to-stone-50">
-                <div className="relative mb-6">
-                  <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-granite-800 to-granite-900 rounded-2xl shadow-stone group-hover:shadow-marble transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-3">
-                    <service.icon className="text-white" size={36} />
-                  </div>
-                </div>
-                
-                <h4 className="text-xl font-bold text-granite-900 mb-4 group-hover:text-granite-800 transition-colors">
-                  {service.title}
-                </h4>
-                
-                <p className="text-granite-600 leading-relaxed group-hover:text-granite-700 transition-colors">
-                  {service.description}
-                </p>
-                
-                {/* Hover effect indicator */}
-                <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-12 h-1 bg-gradient-to-r from-gold-500 to-gold-600 rounded-full mx-auto"></div>
-                </div>
-              </div>
-            ))}
+          {/* Services */}
+          <div>
+            <SectionHeader
+              title={
+                <>
+                  Nasze
+                  <span className="block bg-gradient-to-r from-gold-600 to-gold-700 bg-clip-text text-transparent py-2">
+                    Specjalizacje
+                  </span>
+                </>
+              }
+              description="Każda domena wymaga unikalnego podejścia i mistrzowskiego wykonania"
+              titleClassName="heading-secondary mb-4"
+              descriptionClassName="text-elegant max-w-2xl mx-auto"
+              className="text-center mb-16"
+            />
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              {services.map((service, index) => (
+                <ServiceCard
+                  key={index}
+                  icon={service.icon}
+                  title={service.title}
+                  description={service.description}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </SectionBackground>
     </section>
   )
 }

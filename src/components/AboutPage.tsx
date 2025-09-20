@@ -1,14 +1,15 @@
 import Header from './Header'
 import About from './About'
 import Footer from './Footer'
+import { PageWrapper } from './ui'
 
 const AboutPage = (): JSX.Element => {
   return (
     <>
       <Header />
-      <main className="pt-20">
+      <PageWrapper backgroundVariant="stone">
         <About />
-      </main>
+      </PageWrapper>
       <Footer />
     </>
   )

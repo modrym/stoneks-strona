@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
+import { PageWrapper } from './ui'
 
 const NotFoundPage = (): JSX.Element => {
   return (
     <>
       <Header />
-      <main className="pt-20 min-h-screen flex flex-col items-center justify-center bg-stone-50">
+      <PageWrapper backgroundVariant="stone" className="flex flex-col items-center justify-center">
         <div className="text-center px-4 max-w-md mx-auto">
           {/* Large 404 */}
           <div className="text-8xl md:text-9xl font-bold text-stone-300 mb-4">
@@ -40,7 +41,7 @@ const NotFoundPage = (): JSX.Element => {
             </Link>
           </div>
         </div>
-      </main>
+      </PageWrapper>
       <Footer />
     </>
   )

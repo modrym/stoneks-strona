@@ -1,14 +1,15 @@
 import Header from './Header'
 import Portfolio from './Portfolio'
 import Footer from './Footer'
+import { PageWrapper } from './ui'
 
 const PortfolioPage = (): JSX.Element => {
   return (
     <>
       <Header />
-      <main className="pt-20">
+      <PageWrapper>
         <Portfolio />
-      </main>
+      </PageWrapper>
       <Footer />
     </>
   )

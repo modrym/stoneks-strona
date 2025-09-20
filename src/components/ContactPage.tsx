@@ -1,14 +1,15 @@
 import Header from './Header'
 import ContactForm from './ContactForm'
 import Footer from './Footer'
+import { PageWrapper } from './ui'
 
 const ContactPage = (): JSX.Element => {
   return (
     <>
       <Header />
-      <main className="pt-20">
+      <PageWrapper backgroundVariant="white">
         <ContactForm />
-      </main>
+      </PageWrapper>
       <Footer />
     </>
   )

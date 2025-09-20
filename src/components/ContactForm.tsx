@@ -1,5 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from 'react'
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react'
+import { SectionHeader, SectionBackground, ContactInfoCard } from './ui'
 
 interface FormData {
   name: string;
@@ -19,7 +20,7 @@ const ContactForm = (): JSX.Element => {
   })
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false)
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>): void => {
     const { name, value } = e.target
     setFormData(prev => ({
       ...prev,
@@ -74,30 +75,23 @@ const ContactForm = (): JSX.Element => {
   ]
 
   return (
-    <section id="contact" className="relative section-padding overflow-hidden">
-      {/* Background with texture */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white to-stone-50"></div>
-      <div className="absolute bottom-0 left-0 w-1/3 h-2/3 texture-marble opacity-20"></div>
-      <div className="absolute top-0 right-0 w-1/2 h-1/2 texture-stone opacity-15"></div>
-      
-      <div className="container-custom relative z-10">
-        <div className="text-center mb-20">
-          <div className="inline-block mb-6">
-            <span className="bg-gradient-to-r from-granite-600 to-granite-700 text-white px-6 py-2 rounded-full text-sm font-semibold tracking-wide uppercase">
-              Rozpocznij Rozmowę
-            </span>
-          </div>
-          <h2 className="heading-secondary mb-6">
-            Zrealizujmy Twoje
-            <span className="block bg-gradient-to-r from-gold-600 to-gold-700 bg-clip-text text-transparent">
-              marzenie w kamieniu
-            </span>
-          </h2>
-          <p className="text-elegant max-w-4xl mx-auto">
-            Każdy projekt to nowa historia. Opowiedz nam o swoich marzeniach, a my pomożemy 
-            je wcielić w życie za pomocą mistrzowskiej obróbki najpiękniejszych kamieni naturalnych.
-          </p>
-        </div>
+    <section id="contact" className="section-padding-reduced overflow-hidden">
+      <SectionBackground variant="contact">
+        <div className="container-custom relative z-10">
+          <SectionHeader
+            badge="Rozpocznij Rozmowę"
+            badgeVariant="granite"
+            title={
+              <>
+                Zrealizujmy Twoje
+                <span className="block bg-gradient-to-r from-gold-600 to-gold-700 bg-clip-text text-transparent">
+                  marzenie w kamieniu
+                </span>
+              </>
+            }
+            description="Każdy projekt to nowa historia. Opowiedz nam o swoich marzeniach, a my pomożemy 
+            je wcielić w życie za pomocą mistrzowskiej obróbki najpiękniejszych kamieni naturalnych."
+          />
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Information */}
@@ -108,22 +102,13 @@ const ContactForm = (): JSX.Element => {
             
             <div className="space-y-6 mb-8">
               {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-stone-100 rounded-lg flex items-center justify-center">
-                    <info.icon className="text-stone-700" size={24} />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-stone-900 mb-1">
-                      {info.title}
-                    </h4>
-                    <p className="text-gray-700 whitespace-pre-line font-medium">
-                      {info.content}
-                    </p>
-                    <p className="text-gray-500 text-sm mt-1">
-                      {info.subtitle}
-                    </p>
-                  </div>
-                </div>
+                <ContactInfoCard
+                  key={index}
+                  icon={info.icon}
+                  title={info.title}
+                  content={info.content}
+                  subtitle={info.subtitle}
+                />
               ))}
             </div>
 
@@ -259,7 +244,8 @@ const ContactForm = (): JSX.Element => {
             )}
           </div>
         </div>
-      </div>
+        </div>
+      </SectionBackground>
     </section>
   )
 }

@@ -4,6 +4,7 @@ import { getCategoryById, GalleryCategory } from '../data/galleryData'
 import { ArrowLeft, Home, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import Header from './Header'
 import Footer from './Footer'
+import { PageWrapper, Badge } from './ui'
 
 const GalleryPage = (): JSX.Element => {
   const { categoryId } = useParams<{ categoryId: string }>()
@@ -65,18 +66,16 @@ const GalleryPage = (): JSX.Element => {
     return (
       <>
         <Header />
-        <main className="pt-20">
-          <div className="min-h-screen bg-gradient-to-br from-granite-50 to-stone-100 flex items-center justify-center">
-            <div className="text-center">
-              <h1 className="heading-secondary mb-4">Kategoria nie znaleziona</h1>
-              <p className="text-granite-600 mb-8">Wybrana kategoria nie istnieje</p>
-              <Link to="/" className="btn-primary inline-flex items-center">
-                <Home className="mr-2" size={20} />
-                Wróć do strony głównej
-              </Link>
-            </div>
+        <PageWrapper className="flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="heading-secondary mb-4">Kategoria nie znaleziona</h1>
+            <p className="text-granite-600 mb-8">Wybrana kategoria nie istnieje</p>
+            <Link to="/" className="btn-primary inline-flex items-center">
+              <Home className="mr-2" size={20} />
+              Wróć do strony głównej
+            </Link>
           </div>
-        </main>
+        </PageWrapper>
         <Footer />
       </>
     )
@@ -85,16 +84,16 @@ const GalleryPage = (): JSX.Element => {
   return (
     <>
       <Header />
-      <main className="pt-20">
+      <PageWrapper>
         {/* Gallery Section */}
-        <section className="pt-12 pb-8 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-granite-50 to-stone-100">
+        <section className="section-padding-reduced bg-gradient-to-br from-granite-50 to-stone-100">
           {/* Gallery Title */}
           <div className="container-custom">
             <div className="text-center mb-8">
-              <div className="inline-block mb-6">
-                <span className="bg-gradient-to-r from-gold-500 to-gold-600 text-white px-6 py-2 rounded-full text-sm font-semibold tracking-wide uppercase shadow-gold">
+              <div className="mb-6">
+                <Badge>
                   Galeria realizacji
-                </span>
+                </Badge>
               </div>
               <h1 className="heading-secondary mb-6">{category.title}</h1>
               <p className="text-elegant max-w-4xl mx-auto">
@@ -170,7 +169,7 @@ const GalleryPage = (): JSX.Element => {
           </div>
           </div>
         </section>
-      </main>
+      </PageWrapper>
       <Footer />
 
       {/* Lightbox Modal */}

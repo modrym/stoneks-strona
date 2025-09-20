@@ -8,14 +8,17 @@ import GalleryPage from './components/GalleryPage'
 import ContactPage from './components/ContactPage'
 import NotFoundPage from './components/NotFoundPage'
 import Footer from './components/Footer'
+import { PageWrapper } from './components/ui'
 
 // Home page component
 function HomePage(): JSX.Element {
   return (
     <>
       <Header />
-      <HeroCarousel />
-      <Hero />
+      <PageWrapper className="!pt-0">
+        <HeroCarousel />
+        <Hero />
+      </PageWrapper>
       <Footer />
     </>
   )

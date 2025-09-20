@@ -1,33 +1,26 @@
 import { Link } from 'react-router-dom'
 import { galleryCategories } from '../data/galleryData'
 import { ArrowRight } from 'lucide-react'
+import { SectionHeader, SectionBackground } from './ui'
 
 const Portfolio = (): JSX.Element => {
   return (
-    <section id="portfolio" className="relative section-padding overflow-hidden">
-      {/* Background with texture */}
-      <div className="absolute inset-0 bg-gradient-to-br from-granite-50 to-stone-100"></div>
-      <div className="absolute top-0 left-0 w-1/2 h-full texture-marble opacity-20"></div>
-      <div className="absolute bottom-0 right-0 w-1/3 h-2/3 texture-stone opacity-30"></div>
-      
-      <div className="container-custom relative z-10">
-        <div className="text-center mb-20">
-          <div className="inline-block mb-6">
-            <span className="bg-gradient-to-r from-gold-500 to-gold-600 text-white px-6 py-2 rounded-full text-sm font-semibold tracking-wide uppercase shadow-gold">
-              Portfolio Mistrzowskich Dzieł
-            </span>
-          </div>
-          <h2 className="heading-secondary mb-6">
-            Odkryj nasze
-            <span className="block bg-gradient-to-r from-gold-600 to-gold-700 bg-clip-text text-transparent">
-              kategorie realizacji
-            </span>
-          </h2>
-          <p className="text-elegant max-w-4xl mx-auto">
-            Wybierz kategorię, aby poznać nasze mistrzowskie dzieła. Od eleganckich nagrobków 
-            po nowoczesne realizacje - każdy projekt to testament naszego zaangażowania w perfekcję.
-          </p>
-        </div>
+    <section id="portfolio" className="section-padding-reduced overflow-hidden">
+      <SectionBackground variant="portfolio">
+        <div className="container-custom relative z-10">
+          <SectionHeader
+            badge="Portfolio Mistrzowskich Dzieł"
+            title={
+              <>
+                Odkryj nasze
+                <span className="block bg-gradient-to-r from-gold-600 to-gold-700 bg-clip-text text-transparent">
+                  kategorie realizacji
+                </span>
+              </>
+            }
+            description="Wybierz kategorię, aby poznać nasze mistrzowskie dzieła. Od eleganckich nagrobków 
+            po nowoczesne realizacje - każdy projekt to testament naszego zaangażowania w perfekcję."
+          />
 
         {/* Portfolio Categories */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
@@ -103,7 +96,8 @@ const Portfolio = (): JSX.Element => {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      </SectionBackground>
     </section>
   )
 }

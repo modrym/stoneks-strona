@@ -1,5 +1,6 @@
 import { ArrowRight, Award, Users, Clock, LucideIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { Badge, SectionBackground } from './ui'
 
 // images
 import kamieniarz from '../assets/images/kamieniarz.jpg';
@@ -18,25 +19,23 @@ const Hero = (): JSX.Element => {
   ]
 
   return (
-    <section className="relative py-20 overflow-hidden">
-      {/* Background with texture and overlay */}
-      <div className="absolute inset-0 texture-marble"></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-stone-50/80"></div>
-      
-      {/* Decorative geometric elements */}
-      <div className="absolute top-20 right-10 w-96 h-96 texture-stone rounded-full opacity-20 blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-80 h-80 texture-dark-marble rounded-full opacity-10 blur-2xl"></div>
-      
-      <div className="container-custom section-padding relative z-10">
+    <section className="section-padding-reduced overflow-hidden">
+      <SectionBackground 
+        variant="hero"
+        customGradient="bg-gradient-to-br from-white/95 via-white/90 to-stone-50/80"
+        textureElements={[
+          { position: 'top-right', size: 'xl', texture: 'stone', opacity: 'low', className: 'w-96 h-96 rounded-full blur-3xl' },
+          { position: 'bottom-left', size: 'lg', texture: 'dark-marble', opacity: 'low', className: 'w-80 h-80 rounded-full blur-2xl' }
+        ]}
+      >
+        <div className="container-custom section-padding relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <div className="inline-block">
-                <span className="bg-gradient-to-r from-gold-500 to-gold-600 text-white px-4 py-2 rounded-full text-sm font-semibold tracking-wide uppercase shadow-gold">
-                  Tradycja od 1999 roku
-                </span>
-              </div>
+              <Badge>
+                Tradycja od 1999 roku
+              </Badge>
               
               <h1 className="heading-primary">
                 Sztuka w
@@ -115,7 +114,8 @@ const Hero = (): JSX.Element => {
             <div className="absolute top-32 right-8 w-1 h-1 bg-gold-400 rounded-full animate-pulse delay-500"></div>
           </div>
         </div>
-      </div>
+        </div>
+      </SectionBackground>
     </section>
   )
 }
