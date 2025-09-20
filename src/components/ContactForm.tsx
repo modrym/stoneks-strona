@@ -117,7 +117,7 @@ const ContactForm = (): JSX.Element => {
               <div className="relative w-full h-full">
                 <iframe 
                   className="absolute inset-0 w-full h-full border-0"
-                  src="https://maps.google.com/maps?width=600&height=400&hl=en&q=brzozowa 10, 97-425&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+                  src="https://maps.google.com/maps?width=600&height=400&hl=pl&q=brzozowa 10, 97-425&t=&z=14&ie=UTF8&iwloc=B&output=embed"
                   title="Lokalizacja firmy"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
