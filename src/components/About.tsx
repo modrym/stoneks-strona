@@ -105,7 +105,7 @@ const About = (): JSX.Element => {
           <div className="text-center mb-16">
             <h3 className="heading-secondary mb-4">
               Nasze
-              <span className="block bg-gradient-to-r from-gold-600 to-gold-700 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-gold-600 to-gold-700 bg-clip-text text-transparent py-2">
                 Specjalizacje
               </span>
             </h3>
