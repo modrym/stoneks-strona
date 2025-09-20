@@ -51,7 +51,7 @@ const Footer = (): JSX.Element => {
               </div>
               <div className="ml-4">
                 <span className="text-xl font-bold font-serif bg-gradient-to-r from-white to-stone-100 bg-clip-text text-transparent">
-                  Stoneks
+                  StoneKS
                 </span>
                 <div className="text-xs text-stone-300 font-medium tracking-wider uppercase">
                   Mistrzowska Kamieniarka

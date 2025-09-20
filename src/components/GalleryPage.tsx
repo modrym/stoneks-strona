@@ -158,7 +158,7 @@ const GalleryPage = (): JSX.Element => {
                   Podobają Ci się nasze realizacje?
                 </h3>
                 <p className="text-elegant mb-6">
-                  Skontaktuj się z nami, aby omówić Twój projekt w kategorii &ldquo;{category.name}&rdquo;. 
+                  Skontaktuj się z nami, aby omówić Twój projekt. 
                   Oferujemy bezpłatną konsultację i wycenę.
                 </p>
                 <Link to="/kontakt" className="btn-primary group inline-flex items-center">
