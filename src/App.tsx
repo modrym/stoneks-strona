@@ -6,6 +6,7 @@ import AboutPage from './components/AboutPage'
 import PortfolioPage from './components/PortfolioPage'
 import GalleryPage from './components/GalleryPage'
 import ContactPage from './components/ContactPage'
+import NotFoundPage from './components/NotFoundPage'
 import Footer from './components/Footer'
 
 // Home page component
@@ -30,6 +31,7 @@ function App(): JSX.Element {
           <Route path="/realizacje" element={<PortfolioPage />} />
           <Route path="/realizacje/:categoryId" element={<GalleryPage />} />
           <Route path="/kontakt" element={<ContactPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
     </Router>
