@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import type { Swiper as SwiperType } from 'swiper'
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 
@@ -14,6 +15,15 @@ import { carouselSlides } from '../data/carouselData'
 
 const HeroCarousel = (): JSX.Element => {
   const [activeSlide, setActiveSlide] = useState<number>(0)
+  const swiperRef = useRef<SwiperType | null>(null)
+
+  const handleIndicatorClick = (index: number, event: React.MouseEvent<HTMLButtonElement>): void => {
+    if (swiperRef.current) {
+      swiperRef.current.slideTo(index)
+      // Remove focus to prevent focus ring after clicking
+      event.currentTarget.blur()
+    }
+  }
 
   return (
     <section className="relative w-full h-screen overflow-hidden">
@@ -38,6 +48,7 @@ const HeroCarousel = (): JSX.Element => {
           prevEl: '.hero-carousel-prev',
           nextEl: '.hero-carousel-next',
         }}
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
         onSlideChange={(swiper) => setActiveSlide(swiper.activeIndex)}
         className="hero-carousel h-full"
       >
@@ -143,14 +154,20 @@ const HeroCarousel = (): JSX.Element => {
       {/* Slide Indicators */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex space-x-3">
         {carouselSlides.map((_, index) => (
-          <div
+          <button
             key={index}
-            className={`w-12 h-1 rounded-full transition-all duration-300 ${
-              index === activeSlide 
-                ? 'bg-gradient-to-r from-gold-400 to-gold-600 shadow-gold' 
-                : 'bg-white/30 hover:bg-white/50'
-            }`}
-          />
+            onClick={(event) => handleIndicatorClick(index, event)}
+            className="p-3 rounded-full transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:ring-offset-2 focus:ring-offset-black/20 flex items-center justify-center"
+            aria-label={`Go to slide ${index + 1}`}
+          >
+            <div
+              className={`w-12 h-1 rounded-full transition-all duration-300 ${
+                index === activeSlide 
+                  ? 'bg-gradient-to-r from-gold-400 to-gold-600 shadow-gold' 
+                  : 'bg-white/30 hover:bg-white/50'
+              }`}
+            />
+          </button>
         ))}
       </div>
 
