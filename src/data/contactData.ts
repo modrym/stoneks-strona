@@ -16,9 +16,6 @@ export interface CompanyInfo {
   phone: string;
   email: string;
   address: {
-    street: string;
-    city: string;
-    postalCode: string;
     full: string;
   };
   hours: {
@@ -32,14 +29,11 @@ export interface CompanyInfo {
 
 // Company information
 export const companyInfo: CompanyInfo = {
-  name: "Stoneks",
+  name: "StoneKS",
   phone: "+48 123 456 789",
   email: "kontakt@stoneks.info",
   address: {
-    street: "ul. Kamienna 15",
-    city: "Warszawa",
-    postalCode: "00-001",
-    full: "ul. Kamienna 15\n00-001 Warszawa"
+    full: "ul. Brzozowa 10\n97-425 Mauryców"
   },
   hours: {
     weekdays: "8:00-16:00",
@@ -68,7 +62,7 @@ export const contactInfo: ContactInfo[] = [
     icon: MapPin,
     title: 'Adres',
     content: companyInfo.address.full,
-    subtitle: 'Zapraszamy do naszego showroomu'
+    subtitle: 'Umów się na spotkanie'
   },
   {
     icon: Clock,
