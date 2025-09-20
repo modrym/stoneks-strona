@@ -121,8 +121,6 @@ const About = (): JSX.Element => {
                   <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-granite-800 to-granite-900 rounded-2xl shadow-stone group-hover:shadow-marble transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-3">
                     <service.icon className="text-white" size={36} />
                   </div>
-                  {/* Decorative ring */}
-                  <div className="absolute inset-0 w-20 h-20 border-2 border-gold-400/30 rounded-2xl animate-pulse group-hover:border-gold-500/50 transition-colors duration-300"></div>
                 </div>
                 
                 <h4 className="text-xl font-bold text-granite-900 mb-4 group-hover:text-granite-800 transition-colors">
