@@ -80,7 +80,7 @@ const Header = (): JSX.Element => {
               <div className="p-1 rounded-lg bg-gradient-to-br from-gold-100 to-gold-200 group-hover:from-gold-200 group-hover:to-gold-300 transition-all duration-300">
                 <Mail size={16} className="text-granite-700" />
               </div>
-              <span className="font-semibold">kontakt@stoneks.pl</span>
+              <span className="font-semibold">kontakt@stoneks.info</span>
             </div>
           </div>
 
