@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { Menu, X, Phone, Mail } from 'lucide-react'
 import stoneksLogo from '../assets/images/stoneks-logo.jpg'
+import { companyInfo } from '../data/contactData'
 
 interface NavigationItem {
   name: string;
@@ -37,7 +38,7 @@ const Header = (): JSX.Element => {
             <div className="ml-4">
               <Link to="/" className="block">
                 <span className="text-2xl font-bold bg-gradient-to-r from-granite-900 to-granite-700 bg-clip-text text-transparent font-serif">
-                  StoneKS
+                  {companyInfo.name}
                 </span>
                 <div className="text-xs text-granite-500 font-medium tracking-wider uppercase">
                   Mistrzowska Kamieniarka
@@ -74,13 +75,13 @@ const Header = (): JSX.Element => {
               <div className="p-1 rounded-lg bg-gradient-to-br from-gold-100 to-gold-200 group-hover:from-gold-200 group-hover:to-gold-300 transition-all duration-300">
                 <Phone size={16} className="text-granite-700" />
               </div>
-              <span className="font-semibold">+48 123 456 789</span>
+              <span className="font-semibold">{companyInfo.phone}</span>
             </div>
             <div className="flex items-center space-x-2 text-granite-600 hover:text-granite-800 transition-colors group">
               <div className="p-1 rounded-lg bg-gradient-to-br from-gold-100 to-gold-200 group-hover:from-gold-200 group-hover:to-gold-300 transition-all duration-300">
                 <Mail size={16} className="text-granite-700" />
               </div>
-              <span className="font-semibold">kontakt@stoneks.info</span>
+              <span className="font-semibold">{companyInfo.email}</span>
             </div>
           </div>
 
@@ -114,11 +115,11 @@ const Header = (): JSX.Element => {
               <div className="pt-4 border-t border-gray-200 space-y-2">
                 <div className="flex items-center space-x-2 text-stone-600">
                   <Phone size={18} />
-                  <span>+48 123 456 789</span>
+                  <span>{companyInfo.phone}</span>
                 </div>
                 <div className="flex items-center space-x-2 text-stone-600">
                   <Mail size={18} />
-                  <span>kontakt@stoneks.info</span>
+                  <span>{companyInfo.email}</span>
                 </div>
               </div>
             </div>

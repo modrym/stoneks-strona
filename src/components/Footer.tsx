@@ -1,5 +1,6 @@
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Linkedin } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { companyInfo } from '../data/contactData'
 
 interface QuickLink {
   name: string;
@@ -51,7 +52,7 @@ const Footer = (): JSX.Element => {
               </div>
               <div className="ml-4">
                 <span className="text-xl font-bold font-serif bg-gradient-to-r from-white to-stone-100 bg-clip-text text-transparent">
-                  StoneKS
+                  {companyInfo.name}
                 </span>
                 <div className="text-xs text-stone-300 font-medium tracking-wider uppercase">
                   Mistrzowska Kamieniarka
@@ -65,15 +66,15 @@ const Footer = (): JSX.Element => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-stone-300">
                 <Phone size={18} />
-                <span>+48 123 456 789</span>
+                <span>{companyInfo.phone}</span>
               </div>
               <div className="flex items-center space-x-3 text-stone-300">
                 <Mail size={18} />
-                <span>kontakt@stoneks.info</span>
+                <span>{companyInfo.email}</span>
               </div>
               <div className="flex items-start space-x-3 text-stone-300">
                 <MapPin size={18} className="mt-1 flex-shrink-0" />
-                <span>ul. Kamienna 15<br />00-001 Warszawa</span>
+                <span style={{ whiteSpace: 'pre-line' }}>{companyInfo.address.full}</span>
               </div>
             </div>
           </div>
@@ -114,9 +115,9 @@ const Footer = (): JSX.Element => {
               <div className="flex items-center space-x-3 text-stone-300">
                 <Clock size={18} />
                 <div>
-                  <div>Pon-Pt: 8:00-16:00</div>
-                  <div>Sob: 9:00-13:00</div>
-                  <div>Niedz: zamknięte</div>
+                  <div>Pon-Pt: {companyInfo.hours.weekdays}</div>
+                  <div>Sob: {companyInfo.hours.saturday}</div>
+                  <div>Niedz: {companyInfo.hours.sunday}</div>
                 </div>
               </div>
             </div>
@@ -141,7 +142,7 @@ const Footer = (): JSX.Element => {
         <div className="border-t border-stone-800 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-stone-400 text-sm">
-              © {currentYear} Stoneks. Wszelkie prawa zastrzeżone.
+              © {currentYear} {companyInfo.name}. Wszelkie prawa zastrzeżone.
             </div>
           </div>
         </div>
