@@ -112,16 +112,16 @@ const ContactForm = (): JSX.Element => {
               ))}
             </div>
 
-            {/* Map placeholder */}
-            <div className="aspect-[16/10] bg-gradient-to-br from-stone-100 to-stone-200 rounded-xl overflow-hidden">
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="text-center text-stone-600">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-stone-300 rounded-full flex items-center justify-center">
-                    <MapPin size={32} className="text-stone-600" />
-                  </div>
-                  <p className="font-medium">Mapa lokalizacji</p>
-                  <p className="text-sm">Będzie dodana wkrótce</p>
-                </div>
+            {/* Google Maps */}
+            <div className="aspect-[16/10] rounded-xl overflow-hidden">
+              <div className="relative w-full h-full">
+                <iframe 
+                  className="absolute inset-0 w-full h-full border-0"
+                  src="https://maps.google.com/maps?width=600&height=400&hl=en&q=brzozowa 10, 97-425&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+                  title="Lokalizacja firmy"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
             </div>
           </div>
