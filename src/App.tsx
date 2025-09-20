@@ -8,6 +8,7 @@ import GalleryPage from './components/GalleryPage'
 import ContactPage from './components/ContactPage'
 import NotFoundPage from './components/NotFoundPage'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
 import { PageWrapper } from './components/ui'
 
 // Home page component
@@ -27,6 +28,7 @@ function HomePage(): JSX.Element {
 function App(): JSX.Element {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-white">
         <Routes>
           <Route path="/" element={<HomePage />} />
