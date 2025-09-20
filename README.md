@@ -1,6 +1,6 @@
-# Stoneks - Strona internetowa firmy kamieniarskiej
+# StoneKS - Strona internetowa firmy kamieniarskiej
 
-Profesjonalna strona internetowa dla firmy kamieniarskiej Stoneks, wykonana w React z wykorzystaniem Vite i Tailwind CSS.
+Profesjonalna strona internetowa dla firmy kamieniarskiej StoneKS, wykonana w React z wykorzystaniem Vite i Tailwind CSS.
 
 ## Funkcjonalności
 

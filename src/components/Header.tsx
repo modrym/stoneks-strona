@@ -28,7 +28,7 @@ const Header = (): JSX.Element => {
             <div className="relative">
               <img 
                 src={stoneksLogo} 
-                alt="Stoneks Logo" 
+                alt="StoneKS Logo" 
                 className="w-14 h-14 rounded-xl shadow-stone group-hover:shadow-marble transition-all duration-300 transform group-hover:scale-105 object-contain bg-white"
               />
               {/* Decorative ring */}
