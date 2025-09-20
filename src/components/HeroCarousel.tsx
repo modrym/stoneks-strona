@@ -88,7 +88,7 @@ const HeroCarousel = (): JSX.Element => {
 
             {/* Content Overlay */}
             <div className="absolute inset-0 flex items-center">
-              <div className="container-custom">
+              <div className="container-custom px-4 sm:px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                   <div className="text-white space-y-8">
                     {/* Badge */}
@@ -142,12 +142,12 @@ const HeroCarousel = (): JSX.Element => {
         ))}
       </Swiper>
 
-      {/* Custom Navigation Buttons */}
-      <button className="hero-carousel-prev absolute left-6 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white hover:text-gold-400 transition-all duration-300 group">
+      {/* Custom Navigation Buttons - Hidden on mobile, visible on desktop */}
+      <button className="hero-carousel-prev absolute left-6 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 rounded-full hidden md:flex items-center justify-center text-white hover:text-gold-400 transition-all duration-300 group">
         <ChevronLeft size={24} className="group-hover:-translate-x-0.5 transition-transform" />
       </button>
       
-      <button className="hero-carousel-next absolute right-6 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white hover:text-gold-400 transition-all duration-300 group">
+      <button className="hero-carousel-next absolute right-6 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 rounded-full hidden md:flex items-center justify-center text-white hover:text-gold-400 transition-all duration-300 group">
         <ChevronRight size={24} className="group-hover:translate-x-0.5 transition-transform" />
       </button>
 
