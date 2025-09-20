@@ -143,17 +143,6 @@ const Footer = (): JSX.Element => {
             <div className="text-stone-400 text-sm">
               © {currentYear} Stoneks. Wszelkie prawa zastrzeżone.
             </div>
-            <div className="flex space-x-6 text-sm text-stone-400">
-              <a href="#" className="hover:text-white transition-colors">
-                Polityka prywatności
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                Regulamin
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                RODO
-              </a>
-            </div>
           </div>
         </div>
       </div>
