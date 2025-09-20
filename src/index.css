@@ -34,7 +34,7 @@
   }
   
   .heading-secondary {
-    @apply font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-granite-900 leading-tight;
+    @apply font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-granite-900 leading-normal;
   }
   
   .text-elegant {
