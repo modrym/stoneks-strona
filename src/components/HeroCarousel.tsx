@@ -9,49 +9,11 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/effect-fade'
 
-// Import images
-import nagrobki from '../assets/images/carousel/nagrobki.jpg'
-import schody from '../assets/images/carousel/schody.jpg'
-import tradycja from '../assets/images/carousel/tradycja.jpg'
+// Import carousel data
+import { carouselSlides } from '../data/carouselData'
 
 const HeroCarousel = (): JSX.Element => {
   const [activeSlide, setActiveSlide] = useState<number>(0)
-
-  const slides = [
-    {
-      id: 1,
-      title: "Mistrzowskie Nagrobki",
-      subtitle: "Z szacunkiem dla pamięci",
-      description: "Tworzymy unikalne pomniki i nagrobki z najszlachetniejszych kamieni naturalnych",
-      ctaText: "Zobacz realizacje",
-      ctaLink: "#projects",
-      backgroundClass: "bg-gradient-to-br from-granite-900 via-granite-800 to-granite-900",
-      imageUrl: nagrobki,
-      imageAlt: "Nagrobki na Cmentarzu Powązkowskim w Warszawie"
-    },
-    {
-      id: 2,
-      title: "Architektura w Kamieniu",
-      subtitle: "Ponadczasowe rozwiązania",
-      description: "Schody, elewacje, parapety - elementy, które przetrwają wieki",
-      ctaText: "Poznaj więcej",
-      ctaLink: "#about",
-      backgroundClass: "bg-gradient-to-br from-granite-800 via-stone-700 to-granite-900",
-      imageUrl: schody,
-      imageAlt: "Schody z kamienia na zewnątrz budynku"
-    },
-    {
-      id: 3,
-      title: "Tradycja Przekazywana Pokoleniami",
-      subtitle: "Od 1999 roku z pasją",
-      description: "Rodzinna firma z wieloletnim doświadczeniem w obróbce kamienia naturalnego",
-      ctaText: "Nasze historia",
-      ctaLink: "#about",
-      backgroundClass: "bg-gradient-to-br from-stone-800 via-granite-700 to-stone-900",
-      imageUrl: tradycja,
-      imageAlt: "Warsztat kamieniarski"
-    }
-  ]
 
   return (
     <section className="relative w-full h-screen overflow-hidden">
@@ -79,7 +41,7 @@ const HeroCarousel = (): JSX.Element => {
         onSlideChange={(swiper) => setActiveSlide(swiper.activeIndex)}
         className="hero-carousel h-full"
       >
-        {slides.map((slide, _index) => (
+        {carouselSlides.map((slide, _index) => (
           <SwiperSlide key={slide.id} className="relative">
             {/* Background Image */}
             <div className={`absolute inset-0 ${slide.backgroundClass}`}>
@@ -180,7 +142,7 @@ const HeroCarousel = (): JSX.Element => {
 
       {/* Slide Indicators */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex space-x-3">
-        {slides.map((_, index) => (
+        {carouselSlides.map((_, index) => (
           <div
             key={index}
             className={`w-12 h-1 rounded-full transition-all duration-300 ${
@@ -196,7 +158,7 @@ const HeroCarousel = (): JSX.Element => {
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
         <div 
           className="h-full bg-gradient-to-r from-gold-400 to-gold-600 transition-all duration-300 ease-linear"
-          style={{ width: `${((activeSlide + 1) / slides.length) * 100}%` }}
+          style={{ width: `${((activeSlide + 1) / carouselSlides.length) * 100}%` }}
         />
       </div>
 

@@ -1,6 +1,7 @@
 import { useState, ChangeEvent, FormEvent } from 'react'
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react'
+import { Send, CheckCircle } from 'lucide-react'
 import { SectionHeader, SectionBackground, ContactInfoCard } from './ui'
+import { contactInfo, companyInfo } from '../data/contactData'
 
 interface FormData {
   name: string;
@@ -47,32 +48,6 @@ const ContactForm = (): JSX.Element => {
     }, 3000)
   }
 
-  const contactInfo = [
-    {
-      icon: Phone,
-      title: 'Telefon',
-      content: '+48 123 456 789',
-      subtitle: 'Pon-Pt: 8:00-16:00'
-    },
-    {
-      icon: Mail,
-      title: 'Email',
-      content: 'kontakt@stoneks.info',
-      subtitle: 'Odpowiadamy w 24h'
-    },
-    {
-      icon: MapPin,
-      title: 'Adres',
-      content: 'ul. Kamienna 15\n00-001 Warszawa',
-      subtitle: 'Zapraszamy do naszego showroomu'
-    },
-    {
-      icon: Clock,
-      title: 'Godziny otwarcia',
-      content: 'Pon-Pt: 8:00-16:00\nSob: 9:00-13:00',
-      subtitle: 'Niedziela: zamknięte'
-    }
-  ]
 
   return (
     <section id="contact" className="section-padding-reduced overflow-hidden">
@@ -117,7 +92,7 @@ const ContactForm = (): JSX.Element => {
               <div className="relative w-full h-full">
                 <iframe 
                   className="absolute inset-0 w-full h-full border-0"
-                  src="https://maps.google.com/maps?width=600&height=400&hl=pl&q=brzozowa 10, 97-425&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+                  src={companyInfo.mapUrl}
                   title="Lokalizacja firmy"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
