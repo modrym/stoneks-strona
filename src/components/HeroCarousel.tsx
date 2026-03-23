@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import type { Swiper as SwiperType } from 'swiper'
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules'
+import { Link } from 'react-router-dom'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 
 // Import Swiper styles
@@ -112,13 +113,13 @@ const HeroCarousel = (): JSX.Element => {
 
                     {/* CTA Button */}
                     <div className="pt-4">
-                      <a 
-                        href={slide.ctaLink}
+                      <Link
+                        to={slide.ctaLink}
                         className="inline-flex items-center bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-gold hover:shadow-marble transition-all duration-300 transform hover:scale-105 group backdrop-blur-sm border border-gold-400/20"
                       >
                         {slide.ctaText}
                         <ArrowRight className="ml-3 group-hover:translate-x-1 transition-transform" size={24} />
-                      </a>
+                      </Link>
                     </div>
                   </div>
 

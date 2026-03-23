@@ -31,11 +31,13 @@ const ContactForm = (): JSX.Element => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
-    // Simulate form submission
-    console.log('Form submitted:', formData)
+    const subject = encodeURIComponent(formData.subject || 'Zapytanie ze strony')
+    const body = encodeURIComponent(
+      `Imię i nazwisko: ${formData.name}\nTelefon: ${formData.phone}\nEmail: ${formData.email}\n\n${formData.message}`
+    )
+    window.location.href = `mailto:${companyInfo.email}?subject=${subject}&body=${body}`
     setIsSubmitted(true)
-    
-    // Reset form after 3 seconds
+
     setTimeout(() => {
       setIsSubmitted(false)
       setFormData({

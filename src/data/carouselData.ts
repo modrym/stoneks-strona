@@ -26,7 +26,7 @@ export const carouselSlides: CarouselSlide[] = [
     subtitle: "Z szacunkiem dla pamięci",
     description: "Tworzymy unikalne pomniki i nagrobki z najszlachetniejszych kamieni naturalnych",
     ctaText: "Zobacz realizacje",
-    ctaLink: "#projects",
+    ctaLink: "/realizacje",
     backgroundClass: "bg-gradient-to-br from-granite-900 via-granite-800 to-granite-900",
     imageUrl: nagrobki,
     imageAlt: "Nagrobki na Cmentarzu Powązkowskim w Warszawie"
@@ -37,7 +37,7 @@ export const carouselSlides: CarouselSlide[] = [
     subtitle: "Ponadczasowe rozwiązania",
     description: "Schody, elewacje, parapety - elementy, które przetrwają wieki",
     ctaText: "Poznaj więcej",
-    ctaLink: "#about",
+    ctaLink: "/o-nas",
     backgroundClass: "bg-gradient-to-br from-granite-800 via-stone-700 to-granite-900",
     imageUrl: schody,
     imageAlt: "Schody z kamienia na zewnątrz budynku"
@@ -47,8 +47,8 @@ export const carouselSlides: CarouselSlide[] = [
     title: "Tradycja Przekazywana Pokoleniami",
     subtitle: "Od 1999 roku z pasją",
     description: "Rodzinna firma z wieloletnim doświadczeniem w obróbce kamienia naturalnego",
-    ctaText: "Nasze historia",
-    ctaLink: "#about",
+    ctaText: "Nasza historia",
+    ctaLink: "/o-nas",
     backgroundClass: "bg-gradient-to-br from-stone-800 via-granite-700 to-stone-900",
     imageUrl: tradycja,
     imageAlt: "Warsztat kamieniarski"

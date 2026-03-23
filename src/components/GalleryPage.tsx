@@ -43,20 +43,22 @@ const GalleryPage = (): JSX.Element => {
 
       switch (event.key) {
         case 'Escape':
-          closeLightbox()
+          setLightboxOpen(false)
           break
         case 'ArrowLeft':
-          goToPrevious()
+          setCurrentImageIndex(prev => prev > 0 ? prev - 1 : prev)
           break
         case 'ArrowRight':
-          goToNext()
+          setCurrentImageIndex(prev =>
+            category && prev < category.images.length - 1 ? prev + 1 : prev
+          )
           break
       }
     }
 
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [lightboxOpen, currentImageIndex])
+  }, [lightboxOpen, category])
 
   // Images for custom uniform grid
   const galleryImages = category?.images || []
