@@ -68,7 +68,7 @@ const Hero = (): JSX.Element => {
             </div>
 
             {/* Stats - Enhanced */}
-            <div className="grid grid-cols-3 gap-8 pt-8">
+            <div className="grid grid-cols-3 gap-4 sm:gap-8 pt-8">
               {stats.map((stat, index) => (
                 <div key={index} className="group text-center">
                   <div className="relative mb-4">
@@ -80,7 +80,7 @@ const Hero = (): JSX.Element => {
                   <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-granite-900 to-granite-700 bg-clip-text text-transparent mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-sm font-medium text-granite-600 uppercase tracking-wide">
+                  <div className="text-xs sm:text-sm font-medium text-granite-600 uppercase tracking-wide">
                     {stat.label}
                   </div>
                 </div>
