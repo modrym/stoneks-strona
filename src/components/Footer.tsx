@@ -1,4 +1,5 @@
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Linkedin } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock, Facebook } from 'lucide-react'
+// import { Instagram, Linkedin } from 'lucide-react' // TODO: uncomment when needed
 import { Link } from 'react-router-dom'
 import { companyInfo } from '../data/contactData'
 
@@ -27,9 +28,9 @@ const Footer = (): JSX.Element => {
   ]
 
   const socialLinks = [
-    { name: 'Facebook', icon: Facebook, href: '#' },
-    { name: 'Instagram', icon: Instagram, href: '#' },
-    { name: 'LinkedIn', icon: Linkedin, href: '#' },
+    { name: 'Facebook', icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61579342166373' },
+    // { name: 'Instagram', icon: Instagram, href: '#' },
+    // { name: 'LinkedIn', icon: Linkedin, href: '#' },
   ]
 
   return (
@@ -128,6 +129,8 @@ const Footer = (): JSX.Element => {
                 <a
                   key={social.name}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-stone-800 hover:bg-stone-700 rounded-lg flex items-center justify-center transition-colors"
                   aria-label={social.name}
                 >
