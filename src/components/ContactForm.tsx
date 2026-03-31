@@ -149,7 +149,7 @@ const ContactForm = (): JSX.Element => {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-stone-500 focus:border-stone-500 transition-colors"
-                      placeholder="+48 123 456 789"
+                      placeholder="+48 664 092 218"
                     />
                   </div>
                 </div>

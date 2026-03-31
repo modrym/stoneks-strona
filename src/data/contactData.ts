@@ -30,7 +30,7 @@ export interface CompanyInfo {
 // Company information
 export const companyInfo: CompanyInfo = {
   name: "StoneKS",
-  phone: "+48 123 456 789",
+  phone: "+48 664 092 218",
   email: "kontakt@stoneks.info",
   address: {
     full: "ul. Cmentarna 13/15\n97-425 Zelów"
