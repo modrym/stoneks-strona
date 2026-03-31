@@ -17,6 +17,7 @@ const Header = (): JSX.Element => {
     { name: 'Strona główna', href: '/' },
     { name: 'O nas', href: '/o-nas' },
     { name: 'Realizacje', href: '/realizacje' },
+    { name: 'Materiały', href: '/materialy' },
     { name: 'Kontakt', href: '/kontakt' },
   ]
 

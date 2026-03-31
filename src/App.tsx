@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import AboutPage from './components/AboutPage'
 import PortfolioPage from './components/PortfolioPage'
 import GalleryPage from './components/GalleryPage'
+import MaterialsPage from './components/MaterialsPage'
 import ContactPage from './components/ContactPage'
 import NotFoundPage from './components/NotFoundPage'
 import Footer from './components/Footer'
@@ -35,6 +36,7 @@ function App(): JSX.Element {
           <Route path="/o-nas" element={<AboutPage />} />
           <Route path="/realizacje" element={<PortfolioPage />} />
           <Route path="/realizacje/:categoryId" element={<GalleryPage />} />
+          <Route path="/materialy" element={<MaterialsPage />} />
           <Route path="/kontakt" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
