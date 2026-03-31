@@ -1,5 +1,5 @@
 import { useState, ChangeEvent, FormEvent } from 'react'
-import { Send, CheckCircle } from 'lucide-react'
+import { Send } from 'lucide-react'
 import { SectionHeader, SectionBackground, ContactInfoCard } from './ui'
 import { contactInfo, companyInfo } from '../data/contactData'
 
@@ -19,8 +19,6 @@ const ContactForm = (): JSX.Element => {
     subject: '',
     message: ''
   })
-  const [isSubmitted, setIsSubmitted] = useState<boolean>(false)
-
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>): void => {
     const { name, value } = e.target
     setFormData(prev => ({
@@ -36,18 +34,6 @@ const ContactForm = (): JSX.Element => {
       `Imię i nazwisko: ${formData.name}\nTelefon: ${formData.phone}\nEmail: ${formData.email}\n\n${formData.message}`
     )
     window.location.href = `mailto:${companyInfo.email}?subject=${subject}&body=${body}`
-    setIsSubmitted(true)
-
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
-      })
-    }, 3000)
   }
 
 
@@ -109,18 +95,7 @@ const ContactForm = (): JSX.Element => {
               Napisz do nas
             </h3>
 
-            {isSubmitted ? (
-              <div className="bg-green-50 border border-green-200 rounded-xl p-8 text-center">
-                <CheckCircle className="mx-auto text-green-600 mb-4" size={48} />
-                <h4 className="text-xl font-semibold text-green-800 mb-2">
-                  Dziękujemy!
-                </h4>
-                <p className="text-green-700">
-                  Twoja wiadomość została wysłana. Skontaktujemy się z Tobą w ciągu 24 godzin.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -218,7 +193,6 @@ const ContactForm = (): JSX.Element => {
                   * Pola wymagane. Twoje dane są bezpieczne i nie będą udostępniane osobom trzecim.
                 </p>
               </form>
-            )}
           </div>
         </div>
         </div>
