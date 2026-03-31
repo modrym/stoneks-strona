@@ -33,7 +33,7 @@ export const companyInfo: CompanyInfo = {
   phone: "+48 123 456 789",
   email: "kontakt@stoneks.info",
   address: {
-    full: "ul. Brzozowa 10\n97-425 Mauryców"
+    full: "ul. Cmentarna 13/15\n97-425 Zelów"
   },
   hours: {
     weekdays: "8:00-16:00",
@@ -41,7 +41,7 @@ export const companyInfo: CompanyInfo = {
     sunday: "zamknięte",
     full: "Pon-Pt: 8:00-16:00\nSob: 9:00-13:00"
   },
-  mapUrl: "https://maps.google.com/maps?width=600&height=400&hl=pl&q=brzozowa 10, 97-425&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+  mapUrl: "https://maps.google.com/maps?width=600&height=400&hl=pl&q=Cmentarna 13/15, 97-425 Zelów&t=&z=14&ie=UTF8&iwloc=B&output=embed"
 };
 
 // Contact information for display
