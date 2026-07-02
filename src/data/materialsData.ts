@@ -15,6 +15,8 @@ export interface MaterialCategoryInfo {
   description: string;
 }
 
+import granitStrzegomski from '../assets/images/granit-strzegomski.jpg'
+
 export const materialCategories: MaterialCategoryInfo[] = [
   {
     id: 'granit',
@@ -51,7 +53,7 @@ export const materials: Material[] = [
     category: 'granit',
     description: 'Popularny polski granit o szarej barwie z drobnymi czarnymi i białymi kryształami. Doskonały do nagrobków i elementów architektonicznych.',
     features: ['Wysoka mrozoodporność', 'Niska nasiąkliwość', 'Łatwy w obróbce'],
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Granite_stone_textures.jpg/600px-Granite_stone_textures.jpg',
+    image: granitStrzegomski,
   },
   {
     id: 'granit-szwedzki-czarny',
