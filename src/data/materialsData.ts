@@ -16,6 +16,13 @@ export interface MaterialCategoryInfo {
 }
 
 import granitStrzegomski from '../assets/images/granit-strzegomski.jpg'
+import granitImpala from '../assets/images/materials/granit-impala.jpg'
+import granitKuruGrey from '../assets/images/materials/granit-kuru-grey.jpg'
+import granitBohusRed from '../assets/images/materials/granit-bohus-red.jpg'
+import granitBohusGrey from '../assets/images/materials/granit-bohus-grey.jpg'
+import granitViscountWhite from '../assets/images/materials/granit-viscount-white.jpg'
+import granitBiancoPerla from '../assets/images/materials/granit-bianco-perla.jpg'
+import granitWarangal from '../assets/images/materials/granit-warangal.jpg'
 
 export const materialCategories: MaterialCategoryInfo[] = [
   {
@@ -46,7 +53,64 @@ export const materialCategories: MaterialCategoryInfo[] = [
 ];
 
 export const materials: Material[] = [
-  // Granity
+  // Granity — najczęściej sprzedawane odmiany
+  {
+    id: 'granit-impala',
+    name: 'Impala',
+    category: 'granit',
+    description: 'Ciemnoszary do prawie czarnego, drobnoziarnisty granit pochodzenia południowoafrykańskiego. Jednolita struktura z delikatnymi jaśniejszymi wtrętami. Wybierany chętnie na nagrobki i pomniki.',
+    features: ['Głęboki ciemny odcień', 'Drobne, jednorodne ziarno', 'Wysoka trwałość'],
+    image: granitImpala,
+  },
+  {
+    id: 'granit-kuru-grey',
+    name: 'Kuru Grey',
+    category: 'granit',
+    description: 'Fiński granit o średnioszarej, wyjątkowo jednorodnej barwie i drobnym ziarnie. Uniwersalny wybór — sprawdza się zarówno w kamieniarstwie nagrobkowym, jak i architektonicznym.',
+    features: ['Jednorodna szarość', 'Drobnoziarnisty', 'Skandynawska jakość'],
+    image: granitKuruGrey,
+  },
+  {
+    id: 'granit-bohus-red',
+    name: 'Bohus Red',
+    category: 'granit',
+    description: 'Szwedzki granit o intensywnej, czerwono-różowej barwie i gruboziarnistej strukturze z wyraźnie widocznymi kryształami. Klasyczny materiał na okazałe nagrobki i pomniki.',
+    features: ['Wyrazista czerwień', 'Gruboziarnisty', 'Odporny na warunki atmosferyczne'],
+    image: granitBohusRed,
+  },
+  {
+    id: 'granit-bohus-grey',
+    name: 'Bohus Grey',
+    category: 'granit',
+    description: 'Szwedzki granit o jasnoszarej barwie z ciepłym, różowo-beżowym odcieniem i gruboziarnistej strukturze. Elegancka alternatywa dla klasycznych szarych granitów.',
+    features: ['Ciepły odcień szarości', 'Gruboziarnisty', 'Trwałość na dziesięciolecia'],
+    image: granitBohusGrey,
+  },
+  {
+    id: 'granit-viscount-white',
+    name: 'Viscount White',
+    category: 'granit',
+    description: 'Indyjski granit o białej barwie z charakterystycznymi ciemnoszarymi żyłami przypominającymi marmur. Efektowny materiał na blaty i elementy dekoracyjne.',
+    features: ['Marmuropodobne żyłkowanie', 'Wysoka odporność', 'Elegancki wygląd'],
+    image: granitViscountWhite,
+  },
+  {
+    id: 'granit-bianco-perla',
+    name: 'Bianco Perla',
+    category: 'granit',
+    description: 'Jasny, kremowo-biały granit z delikatnym, drobnym kropkowaniem. Subtelny i elegancki — chętnie wybierany do nowoczesnych nagrobków i pomników rodzinnych.',
+    features: ['Jasna, spokojna kolorystyka', 'Delikatna struktura', 'Uniwersalne zastosowanie'],
+    image: granitBiancoPerla,
+  },
+  {
+    id: 'granit-warangal',
+    name: 'Warangal',
+    category: 'granit',
+    description: 'Indyjski granit o czarno-szarej barwie ze średnioziarnistą strukturą i wyraźnymi jasnymi kryształami. Popularny na nagrobki dzięki dobremu stosunkowi jakości do ceny.',
+    features: ['Kontrastowy wygląd', 'Średnioziarnisty', 'Ekonomiczny wybór'],
+    image: granitWarangal,
+  },
+
   {
     id: 'granit-strzegomski',
     name: 'Granit Strzegomski',
@@ -55,6 +119,8 @@ export const materials: Material[] = [
     features: ['Wysoka mrozoodporność', 'Niska nasiąkliwość', 'Łatwy w obróbce'],
     image: granitStrzegomski,
   },
+
+  /* Odmiany zachowane dla referencji — obecnie nieużywane w ofercie
   {
     id: 'granit-szwedzki-czarny',
     name: 'Granit Szwedzki Czarny',
@@ -79,6 +145,7 @@ export const materials: Material[] = [
     features: ['Unikalna kolorystyka', 'Wysoka twardość', 'Efekt głębi'],
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Granite_Azul_Platino_-_es.jpg/600px-Granite_Azul_Platino_-_es.jpg',
   },
+  */
 
   // Marmury
   {
