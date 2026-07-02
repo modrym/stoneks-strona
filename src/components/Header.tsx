@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { Menu, X, Phone, Mail } from 'lucide-react'
-import stoneksLogo from '../assets/images/stoneks-logo.jpg'
+import stoneksLogo from '../assets/images/stoneks-logo.png'
 import { companyInfo } from '../data/contactData'
 
 interface NavigationItem {
@@ -31,10 +31,8 @@ const Header = (): JSX.Element => {
               <img 
                 src={stoneksLogo} 
                 alt="StoneKS Logo" 
-                className="w-14 h-14 rounded-xl shadow-stone group-hover:shadow-marble transition-all duration-300 transform group-hover:scale-105 object-contain bg-white"
+                className="w-14 h-14 transition-all duration-300 transform group-hover:scale-105 object-contain"
               />
-              {/* Decorative ring */}
-              <div className="absolute inset-0 w-14 h-14 border-2 border-gold-400/20 rounded-xl animate-pulse group-hover:border-gold-500/40 transition-colors duration-300"></div>
             </div>
             <div className="ml-4">
               <Link to="/" className="block">

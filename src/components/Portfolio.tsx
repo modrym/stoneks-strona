@@ -23,9 +23,15 @@ const Portfolio = (): JSX.Element => {
           />
 
         {/* Portfolio Categories */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div className={`grid gap-8 lg:gap-12 ${
+          galleryCategories.length === 1
+            ? 'grid-cols-1 max-w-2xl mx-auto'
+            : galleryCategories.length === 2
+            ? 'grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto'
+            : 'grid-cols-1 md:grid-cols-3'
+        }`}>
           {galleryCategories.map((category) => (
-            <Link 
+            <Link
               key={category.id}
               to={`/realizacje/${category.id}`}
               className="group block"
