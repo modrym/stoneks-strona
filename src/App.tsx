@@ -11,9 +11,14 @@ import NotFoundPage from './components/NotFoundPage'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import { PageWrapper } from './components/ui'
+import { useDocumentMeta } from './hooks/useDocumentMeta'
 
 // Home page component
 function HomePage(): JSX.Element {
+  useDocumentMeta(
+    'Stone KS – Kamieniarstwo Smolarek | Nagrobki, Granit, Marmur',
+    'Stone KS – Kamieniarstwo Smolarek. Profesjonalne usługi kamieniarskie od 1999 roku. Nagrobki, pomniki, blaty kuchenne i schody z granitu i marmuru. Zadzwoń i zamów bezpłatną wycenę.'
+  )
   return (
     <>
       <Header />

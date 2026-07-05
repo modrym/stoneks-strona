@@ -61,8 +61,8 @@ const Footer = (): JSX.Element => {
               </div>
             </div>
             <p className="text-stone-300 mb-6 leading-relaxed">
-              Od ponad 25 lat tworzymy unikalne dzieła z kamienia naturalnego. 
-              Profesjonalna kamieniarka z tradycjami rodzinnymi.
+              Kamieniarstwo Smolarek – Jakub Smolarek kontynuuje rodzinną tradycję
+              rzemiosła kamieniarskiego zapoczątkowaną przez ojca ponad 25 lat temu.
             </p>
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-stone-300">

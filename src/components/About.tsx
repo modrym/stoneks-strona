@@ -50,9 +50,9 @@ const About = (): JSX.Element => {
                 </span>
               </>
             }
-            description="Jesteśmy rodziną rzemieślników, która od pokoleń przekazuje sztukę obróbki kamienia. 
-            Łączymy wieloletnią tradycję z najnowocześniejszymi technologiami, tworząc 
-            dzieła, które przetrwają wieki."
+            description="Rodzinna firma Smolarek – od pokoleń przekazujemy sztukę obróbki kamienia.
+            Jakub Smolarek kontynuuje tradycję zapoczątkowaną przez ojca, łącząc wieloletnie
+            doświadczenie z nowoczesnymi technologiami, tworząc dzieła, które przetrwają wieki."
           />
 
         <div className="grid lg:grid-cols-2 gap-20 items-center mb-20">

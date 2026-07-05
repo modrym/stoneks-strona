@@ -30,7 +30,7 @@ const Header = (): JSX.Element => {
             <div className="relative">
               <img 
                 src={stoneksLogo} 
-                alt="StoneKS Logo" 
+                alt="Stone KS – Kamieniarstwo Smolarek"
                 className="w-14 h-14 transition-all duration-300 transform group-hover:scale-105 object-contain"
               />
             </div>

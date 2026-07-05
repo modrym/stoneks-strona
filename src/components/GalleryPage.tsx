@@ -5,11 +5,17 @@ import { ArrowLeft, Home, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import Header from './Header'
 import Footer from './Footer'
 import { PageWrapper, Badge } from './ui'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
 const GalleryPage = (): JSX.Element => {
   const { categoryId } = useParams<{ categoryId: string }>()
   const category: GalleryCategory | undefined = getCategoryById(categoryId || '')
-  
+
+  useDocumentMeta(
+    category ? `${category.title} – Stone KS Kamieniarstwo Smolarek` : 'Galeria – Stone KS',
+    category ? `Galeria realizacji Stone KS – Kamieniarstwo Smolarek: ${category.title.toLowerCase()}. Zobacz zdjęcia naszych prac z granitu i marmuru.` : 'Galeria realizacji Stone KS – Kamieniarstwo Smolarek.'
+  )
+
   // Lightbox state management
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)

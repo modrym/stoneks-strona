@@ -90,7 +90,7 @@ export const galleryCategories: GalleryCategory[] = [
       thumbnail: src,
       caption: `Realizacja ${i + 1}`,
       title: `Nagrobek — realizacja ${i + 1}`,
-      description: 'Nagrobek wykonany przez StoneKS. Precyzyjne wykończenie i wysokiej jakości granit.',
+      description: 'Nagrobek wykonany przez Stone KS – Kamieniarstwo Smolarek. Precyzyjne wykończenie i wysokiej jakości granit.',
       width: 1536,
       height: 2048,
     })),

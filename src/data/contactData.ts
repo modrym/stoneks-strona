@@ -29,7 +29,7 @@ export interface CompanyInfo {
 
 // Company information
 export const companyInfo: CompanyInfo = {
-  name: "StoneKS",
+  name: "Stone KS",
   phone: "+48 664 092 218",
   email: "kontakt@stoneks.info",
   address: {
